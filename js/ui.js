@@ -31,16 +31,34 @@ export const elements = {
 };
 
 // ===== Product cards =====
+// About the first row on a wide screen: these photos load straight away,
+// the rest only as they're scrolled near (loading="lazy")
+const EAGER_PHOTOS = 4;
+
 // categoryNames: { electronics: "Electronics", ... } for the small label
-function createProductCard(product, categoryNames) {
+// index: the card's position on the page
+function createProductCard(product, categoryNames, index) {
   const fragment = elements.cardTemplate.content.cloneNode(true);
   const card = fragment.querySelector(".product-card");
   const $ = (selector) => card.querySelector(selector);
 
-  $(".product-card__emoji").textContent = product.emoji;
+  // alt describes the photo for people who can't see it. The name is
+  // the best description we have of a product shot.
+  const photo = $(".product-card__photo");
+  photo.alt = product.name;
+  photo.loading = index < EAGER_PHOTOS ? "eager" : "lazy";
+  photo.decoding = "async";
+  photo.addEventListener("error", () => {
+    $(".product-card__image").classList.add("product-card__image--missing");
+  }, { once: true });
+  photo.src = product.image;
+
   $(".product-card__category").textContent = categoryNames[product.category] ?? product.category;
   $(".product-card__name").textContent = product.name;
-  $(".product-card__brand").textContent = product.brand;
+  // Some products (e.g. groceries) have no brand
+  const brand = $(".product-card__brand");
+  brand.textContent = product.brand;
+  brand.hidden = !product.brand;
 
   // On screen: ★★★★☆ 4.4 (196). Screen readers get a sentence instead.
   $(".stars").textContent = starText(product.rating);
@@ -80,7 +98,7 @@ function createProductCard(product, categoryNames) {
 
 export function renderProducts(products, categoryNames) {
   elements.grid.replaceChildren(
-    ...products.map((product) => createProductCard(product, categoryNames))
+    ...products.map((product, index) => createProductCard(product, categoryNames, index))
   );
   elements.grid.hidden = products.length === 0;
 }

@@ -11,7 +11,6 @@
   --color-sale: #d92d20;
   --color-success: #12805c;
   --color-star: #f5a524;
-  --color-image: #eef1f6;
 
   --radius: 14px;
   --radius-small: 8px;
@@ -34,7 +33,6 @@
     --color-primary-soft: #1d2a45;
     --color-sale: #ff7066;
     --color-success: #3ccb94;
-    --color-image: #222834;
     --shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     --shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.5);
 
@@ -479,16 +477,38 @@ body {
   box-shadow: var(--shadow-hover);
 }
 
+/* The photos have white backgrounds, so the frame is white in both themes */
 .product-card__image {
   position: relative;
   display: grid;
   place-items: center;
-  aspect-ratio: 4 / 3;
-  background: var(--color-image);
+  aspect-ratio: 1 / 1;
+  padding: 0.75rem;
+  background: #fff;
+  border-bottom: 1px solid var(--color-border);
 }
 
-.product-card__emoji {
-  font-size: 4rem;
+/* contain: the whole product is always visible, never cropped */
+.product-card__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+.product-card:hover .product-card__photo {
+  transform: scale(1.05);
+}
+
+/* A photo that failed to load: hide the broken-image icon, show a box */
+.product-card__image--missing .product-card__photo {
+  display: none;
+}
+
+.product-card__image--missing::after {
+  content: "📦";
+  font-size: 3.5rem;
+  opacity: 0.4;
 }
 
 .product-card__badge {
@@ -704,8 +724,8 @@ body {
     gap: 0.75rem;
   }
 
-  .product-card__emoji {
-    font-size: 3rem;
+  .product-card__image {
+    padding: 0.5rem;
   }
 
   .product-card__body {
@@ -715,6 +735,7 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .product-card,
+  .product-card__photo,
   .filters {
     transition: none;
   }

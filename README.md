@@ -9,14 +9,16 @@ This is **Project 11** in my beginner-to-expert web development roadmap (Level 2
 
 ## Features
 
-- **Search** names, brands, categories and tags: every word must match, in any order, with or without accents (`lumiere` finds *Lumière*)
+- **Search** names, brands, categories and tags: every word must match, in any order, ignoring case and accents (`creme` would find *crème*)
 - **Filters**: categories (with live counts), price range, minimum rating, in stock only, on sale
 - **Sorting**: featured, price (low/high), customer rating, newest, most reviewed
-- **Pagination**: 12 per page, with `‹ 1 … 4 5 6 … 10 ›` buttons and *"Showing 13–24 of 120"*
+- **Pagination**: 12 per page, with `‹ 1 … 4 5 6 … 17 ›` buttons and *"Showing 13–24 of 194"*
 - **Shareable URLs**: `?q=lamp&category=home&max=50&sort=price-asc&page=2`
 - **Back and Forward** step through filter changes (one step per search, not per letter)
 - **Active filter chips**: "Shoes ✕", "Up to $50 ✕", each removable on its own, plus Clear all
+- **194 real products with real photos**, stored in the project so the shop works offline
 - Sale prices and "Sold out" / "Only 3 left" labels
+- Photos load lazily as you scroll, with a placeholder if one fails
 - **Mobile filter drawer** that behaves like a dialog, with a "Show 24 results" button
 - Loading, error (with Try again) and "nothing found" states
 - Keyboard and screen-reader friendly: skip link, focus management, announced result counts
@@ -106,7 +108,9 @@ product-catalog/
 ├── style.css           # Layout, cards, filters, chips, drawer, themes
 ├── package.json        # npm scripts for the tests
 ├── data/
-│   └── products.json   # 120 products in 8 categories (prices in cents)
+│   └── products.json   # 194 products in 9 categories (prices in cents)
+├── images/
+│   └── products/       # One photo per product (1.webp … 194.webp)
 ├── js/
 │   ├── main.js         # The query, events, history, drawer: connects everything
 │   ├── catalog.js      # Search, filter rules, counts, sorting, pagination
@@ -122,7 +126,7 @@ product-catalog/
 
 ## Known limitations
 
-- The products are a generated local file, and emoji stand in for product photos.
+- The catalog is a local file: prices and stock never change unless the file is updated.
 - Search is simple word matching: no typo tolerance and no ranking by relevance.
 - All filtering happens in the browser, which is fine for hundreds of products. For thousands, the server would filter and paginate.
 
@@ -132,3 +136,7 @@ product-catalog/
 - Brand filter and a price slider
 - "Did you mean…?" suggestions for misspelled searches
 - A shopping cart, which is Project 12 in my roadmap
+
+## Credits
+
+Product names, descriptions and photos come from [DummyJSON](https://dummyjson.com/), a free set of sample data for practising web development. Categories were grouped, and sale discounts and review counts adjusted, to suit this project.

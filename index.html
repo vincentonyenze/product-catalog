@@ -152,7 +152,9 @@
     <li>
       <article class="product-card">
         <div class="product-card__image">
-          <span class="product-card__emoji" aria-hidden="true"></span>
+          <!-- width/height: the browser keeps the space before the photo
+               loads, so the grid doesn't jump. alt is set by JavaScript. -->
+          <img class="product-card__photo" width="300" height="300" alt="">
           <span class="product-card__badge" hidden></span>
         </div>
         <div class="product-card__body">
