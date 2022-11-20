@@ -1,0 +1,2194 @@
+{
+  "categories": [
+    {
+      "slug": "electronics",
+      "name": "Electronics"
+    },
+    {
+      "slug": "clothing",
+      "name": "Clothing"
+    },
+    {
+      "slug": "shoes",
+      "name": "Shoes"
+    },
+    {
+      "slug": "home",
+      "name": "Home & Kitchen"
+    },
+    {
+      "slug": "books",
+      "name": "Books"
+    },
+    {
+      "slug": "sports",
+      "name": "Sports & Outdoors"
+    },
+    {
+      "slug": "beauty",
+      "name": "Beauty"
+    },
+    {
+      "slug": "toys",
+      "name": "Toys & Games"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "X Wireless Headphones",
+      "brand": "Voltix",
+      "category": "electronics",
+      "priceCents": 11349,
+      "discountPercent": 0,
+      "rating": 4.4,
+      "reviewCount": 196,
+      "stock": 119,
+      "emoji": "🎧",
+      "tags": [
+        "audio",
+        "wireless",
+        "bluetooth"
+      ],
+      "description": "Everything you need, nothing you don't.",
+      "createdAt": "2021-11-06"
+    },
+    {
+      "id": 2,
+      "name": "Relaxed Hoodie",
+      "brand": "Fernwood",
+      "category": "clothing",
+      "priceCents": 4300,
+      "discountPercent": 0,
+      "rating": 3.1,
+      "reviewCount": 533,
+      "stock": 24,
+      "emoji": "🧥",
+      "tags": [
+        "casual",
+        "warm"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2022-02-23"
+    },
+    {
+      "id": 3,
+      "name": "Cloud Dress Shoes",
+      "brand": "Swiftfoot",
+      "category": "shoes",
+      "priceCents": 7099,
+      "discountPercent": 0,
+      "rating": 3.2,
+      "reviewCount": 194,
+      "stock": 87,
+      "emoji": "👞",
+      "tags": [
+        "leather",
+        "formal"
+      ],
+      "description": "Great value with a clean, simple design.",
+      "createdAt": "2022-04-12"
+    },
+    {
+      "id": 4,
+      "name": "Nordic Throw Blanket",
+      "brand": "Oak & Ivy",
+      "category": "home",
+      "priceCents": 6995,
+      "discountPercent": 0,
+      "rating": 3.2,
+      "reviewCount": 786,
+      "stock": 112,
+      "emoji": "🛋️",
+      "tags": [
+        "decor",
+        "warm"
+      ],
+      "description": "Great value with a clean, simple design.",
+      "createdAt": "2022-05-18"
+    },
+    {
+      "id": 5,
+      "name": "The Complete Travel Guide",
+      "brand": "Penrose Press",
+      "category": "books",
+      "priceCents": 1199,
+      "discountPercent": 0,
+      "rating": 2.6,
+      "reviewCount": 675,
+      "stock": 27,
+      "emoji": "📙",
+      "tags": [
+        "travel"
+      ],
+      "description": "Everything you need, nothing you don't.",
+      "createdAt": "2021-11-24"
+    },
+    {
+      "id": 6,
+      "name": "Elite Football",
+      "brand": "Kinetic",
+      "category": "sports",
+      "priceCents": 2095,
+      "discountPercent": 0,
+      "rating": 3.1,
+      "reviewCount": 1398,
+      "stock": 19,
+      "emoji": "⚽",
+      "tags": [
+        "football",
+        "outdoor"
+      ],
+      "description": "Everything you need, nothing you don't.",
+      "createdAt": "2022-03-28"
+    },
+    {
+      "id": 7,
+      "name": "Natural Sunscreen SPF 50",
+      "brand": "Lumière",
+      "category": "beauty",
+      "priceCents": 2095,
+      "discountPercent": 0,
+      "rating": 3.3,
+      "reviewCount": 70,
+      "stock": 62,
+      "emoji": "☀️",
+      "tags": [
+        "skincare",
+        "summer"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2021-03-04"
+    },
+    {
+      "id": 8,
+      "name": "Classic Puzzle 1000 Pieces",
+      "brand": "Playful Pine",
+      "category": "toys",
+      "priceCents": 1600,
+      "discountPercent": 10,
+      "rating": 2.7,
+      "reviewCount": 80,
+      "stock": 10,
+      "emoji": "🧩",
+      "tags": [
+        "puzzle",
+        "family"
+      ],
+      "description": "Lightweight, practical and easy to use.",
+      "createdAt": "2021-10-26"
+    },
+    {
+      "id": 9,
+      "name": "Mini Mechanical Keyboard",
+      "brand": "Nordwave",
+      "category": "electronics",
+      "priceCents": 15100,
+      "discountPercent": 0,
+      "rating": 3.8,
+      "reviewCount": 772,
+      "stock": 143,
+      "emoji": "⌨️",
+      "tags": [
+        "computer",
+        "gaming"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2021-11-05"
+    },
+    {
+      "id": 10,
+      "name": "Relaxed Cotton T-Shirt",
+      "brand": "Urbanite",
+      "category": "clothing",
+      "priceCents": 1399,
+      "discountPercent": 0,
+      "rating": 4.5,
+      "reviewCount": 2056,
+      "stock": 50,
+      "emoji": "👕",
+      "tags": [
+        "casual",
+        "cotton",
+        "summer"
+      ],
+      "description": "Thoughtfully made with quality materials.",
+      "createdAt": "2021-02-06"
+    },
+    {
+      "id": 11,
+      "name": "Urban Sneakers",
+      "brand": "Cobble",
+      "category": "shoes",
+      "priceCents": 4700,
+      "discountPercent": 0,
+      "rating": 2.9,
+      "reviewCount": 1924,
+      "stock": 135,
+      "emoji": "👟",
+      "tags": [
+        "casual",
+        "everyday"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2021-03-19"
+    },
+    {
+      "id": 12,
+      "name": "Ceramic Plant Pot",
+      "brand": "Oak & Ivy",
+      "category": "home",
+      "priceCents": 4899,
+      "discountPercent": 25,
+      "rating": 4.2,
+      "reviewCount": 261,
+      "stock": 101,
+      "emoji": "🪴",
+      "tags": [
+        "decor",
+        "garden"
+      ],
+      "description": "Thoughtfully made with quality materials.",
+      "createdAt": "2021-10-01"
+    },
+    {
+      "id": 13,
+      "name": "Paperback JavaScript Guide",
+      "brand": "Quillstone",
+      "category": "books",
+      "priceCents": 3499,
+      "discountPercent": 0,
+      "rating": 3.5,
+      "reviewCount": 9,
+      "stock": 0,
+      "emoji": "📘",
+      "tags": [
+        "programming",
+        "learning"
+      ],
+      "description": "Everything you need, nothing you don't.",
+      "createdAt": "2021-12-04"
+    },
+    {
+      "id": 14,
+      "name": "Explorer Dumbbell Set",
+      "brand": "Apex",
+      "category": "sports",
+      "priceCents": 11699,
+      "discountPercent": 0,
+      "rating": 4.9,
+      "reviewCount": 276,
+      "stock": 75,
+      "emoji": "🏋️",
+      "tags": [
+        "fitness",
+        "strength"
+      ],
+      "description": "Great value with a clean, simple design.",
+      "createdAt": "2022-02-09"
+    },
+    {
+      "id": 15,
+      "name": "Gentle Perfume",
+      "brand": "Lumière",
+      "category": "beauty",
+      "priceCents": 10195,
+      "discountPercent": 0,
+      "rating": 3.4,
+      "reviewCount": 317,
+      "stock": 91,
+      "emoji": "🌸",
+      "tags": [
+        "fragrance"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2021-11-06"
+    },
+    {
+      "id": 16,
+      "name": "Junior Building Blocks",
+      "brand": "Playful Pine",
+      "category": "toys",
+      "priceCents": 5795,
+      "discountPercent": 0,
+      "rating": 3.6,
+      "reviewCount": 1983,
+      "stock": 76,
+      "emoji": "🧱",
+      "tags": [
+        "kids",
+        "creative"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2022-06-06"
+    },
+    {
+      "id": 17,
+      "name": "Ultra Smartwatch",
+      "brand": "Auralis",
+      "category": "electronics",
+      "priceCents": 20899,
+      "discountPercent": 0,
+      "rating": 3.8,
+      "reviewCount": 1702,
+      "stock": 119,
+      "emoji": "⌚",
+      "tags": [
+        "fitness",
+        "wearable"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2021-05-03"
+    },
+    {
+      "id": 18,
+      "name": "Classic Wool Scarf",
+      "brand": "Urbanite",
+      "category": "clothing",
+      "priceCents": 5449,
+      "discountPercent": 15,
+      "rating": 4.5,
+      "reviewCount": 317,
+      "stock": 92,
+      "emoji": "🧣",
+      "tags": [
+        "winter",
+        "warm",
+        "wool"
+      ],
+      "description": "A customer favourite, built to last.",
+      "createdAt": "2021-12-22"
+    },
+    {
+      "id": 19,
+      "name": "Rustic Chef's Knife",
+      "brand": "Hearth",
+      "category": "home",
+      "priceCents": 8849,
+      "discountPercent": 20,
+      "rating": 2.7,
+      "reviewCount": 1969,
+      "stock": 103,
+      "emoji": "🔪",
+      "tags": [
+        "kitchen",
+        "cooking"
+      ],
+      "description": "Great value with a clean, simple design.",
+      "createdAt": "2021-12-25"
+    },
+    {
+      "id": 20,
+      "name": "Pocket Mystery Novel",
+      "brand": "Penrose Press",
+      "category": "books",
+      "priceCents": 1599,
+      "discountPercent": 0,
+      "rating": 3.3,
+      "reviewCount": 2085,
+      "stock": 61,
+      "emoji": "📕",
+      "tags": [
+        "fiction",
+        "mystery"
+      ],
+      "description": "A customer favourite, built to last.",
+      "createdAt": "2021-02-16"
+    },
+    {
+      "id": 21,
+      "name": "Pro Water Bottle",
+      "brand": "Apex",
+      "category": "sports",
+      "priceCents": 3349,
+      "discountPercent": 0,
+      "rating": 3.5,
+      "reviewCount": 278,
+      "stock": 117,
+      "emoji": "🧴",
+      "tags": [
+        "hydration",
+        "outdoor"
+      ],
+      "description": "Lightweight, practical and easy to use.",
+      "createdAt": "2021-08-19"
+    },
+    {
+      "id": 22,
+      "name": "Vegan Sunscreen SPF 50",
+      "brand": "Pure Bloom",
+      "category": "beauty",
+      "priceCents": 1695,
+      "discountPercent": 0,
+      "rating": 5,
+      "reviewCount": 189,
+      "stock": 16,
+      "emoji": "☀️",
+      "tags": [
+        "skincare",
+        "summer"
+      ],
+      "description": "Everything you need, nothing you don't.",
+      "createdAt": "2022-07-28"
+    },
+    {
+      "id": 23,
+      "name": "Junior Kite",
+      "brand": "Playful Pine",
+      "category": "toys",
+      "priceCents": 1599,
+      "discountPercent": 25,
+      "rating": 3.9,
+      "reviewCount": 26,
+      "stock": 0,
+      "emoji": "🪁",
+      "tags": [
+        "outdoor",
+        "kids"
+      ],
+      "description": "A customer favourite, built to last.",
+      "createdAt": "2021-12-14"
+    },
+    {
+      "id": 24,
+      "name": "S2 Wireless Mouse",
+      "brand": "Nordwave",
+      "category": "electronics",
+      "priceCents": 5395,
+      "discountPercent": 0,
+      "rating": 3,
+      "reviewCount": 886,
+      "stock": 25,
+      "emoji": "🖱️",
+      "tags": [
+        "computer",
+        "wireless"
+      ],
+      "description": "Lightweight, practical and easy to use.",
+      "createdAt": "2021-09-09"
+    },
+    {
+      "id": 25,
+      "name": "Organic Slim Jeans",
+      "brand": "Urbanite",
+      "category": "clothing",
+      "priceCents": 8499,
+      "discountPercent": 0,
+      "rating": 2.7,
+      "reviewCount": 293,
+      "stock": 39,
+      "emoji": "👖",
+      "tags": [
+        "denim",
+        "casual"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2021-07-23"
+    },
+    {
+      "id": 26,
+      "name": "Light Sneakers",
+      "brand": "Cobble",
+      "category": "shoes",
+      "priceCents": 4699,
+      "discountPercent": 0,
+      "rating": 4.9,
+      "reviewCount": 347,
+      "stock": 0,
+      "emoji": "👟",
+      "tags": [
+        "casual",
+        "everyday"
+      ],
+      "description": "Great value with a clean, simple design.",
+      "createdAt": "2021-04-03"
+    },
+    {
+      "id": 27,
+      "name": "Nordic Plant Pot",
+      "brand": "Nestly",
+      "category": "home",
+      "priceCents": 4700,
+      "discountPercent": 25,
+      "rating": 2.7,
+      "reviewCount": 2273,
+      "stock": 144,
+      "emoji": "🪴",
+      "tags": [
+        "decor",
+        "garden"
+      ],
+      "description": "Lightweight, practical and easy to use.",
+      "createdAt": "2021-11-19"
+    },
+    {
+      "id": 28,
+      "name": "Collector's Children's Picture Book",
+      "brand": "Northfield",
+      "category": "books",
+      "priceCents": 1100,
+      "discountPercent": 0,
+      "rating": 4.7,
+      "reviewCount": 27,
+      "stock": 139,
+      "emoji": "📒",
+      "tags": [
+        "kids",
+        "picture"
+      ],
+      "description": "Everything you need, nothing you don't.",
+      "createdAt": "2021-09-18"
+    },
+    {
+      "id": 29,
+      "name": "Training Football",
+      "brand": "Trailhawk",
+      "category": "sports",
+      "priceCents": 3895,
+      "discountPercent": 0,
+      "rating": 4.3,
+      "reviewCount": 931,
+      "stock": 146,
+      "emoji": "⚽",
+      "tags": [
+        "football",
+        "outdoor"
+      ],
+      "description": "Thoughtfully made with quality materials.",
+      "createdAt": "2021-03-04"
+    },
+    {
+      "id": 30,
+      "name": "Vegan Face Cream",
+      "brand": "Lumière",
+      "category": "beauty",
+      "priceCents": 3899,
+      "discountPercent": 30,
+      "rating": 3.3,
+      "reviewCount": 1357,
+      "stock": 88,
+      "emoji": "🧴",
+      "tags": [
+        "skincare",
+        "moisturiser"
+      ],
+      "description": "Everything you need, nothing you don't.",
+      "createdAt": "2021-08-04"
+    },
+    {
+      "id": 31,
+      "name": "Deluxe Board Game",
+      "brand": "Wonderbox",
+      "category": "toys",
+      "priceCents": 4600,
+      "discountPercent": 20,
+      "rating": 3.5,
+      "reviewCount": 675,
+      "stock": 48,
+      "emoji": "🎲",
+      "tags": [
+        "family",
+        "game"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2021-06-12"
+    },
+    {
+      "id": 32,
+      "name": "Mini Wireless Mouse",
+      "brand": "Voltix",
+      "category": "electronics",
+      "priceCents": 5899,
+      "discountPercent": 0,
+      "rating": 4.5,
+      "reviewCount": 183,
+      "stock": 44,
+      "emoji": "🖱️",
+      "tags": [
+        "computer",
+        "wireless"
+      ],
+      "description": "A customer favourite, built to last.",
+      "createdAt": "2021-04-17"
+    },
+    {
+      "id": 33,
+      "name": "Everyday Cotton T-Shirt",
+      "brand": "Urbanite",
+      "category": "clothing",
+      "priceCents": 3549,
+      "discountPercent": 0,
+      "rating": 3.6,
+      "reviewCount": 182,
+      "stock": 78,
+      "emoji": "👕",
+      "tags": [
+        "casual",
+        "cotton",
+        "summer"
+      ],
+      "description": "Lightweight, practical and easy to use.",
+      "createdAt": "2022-03-20"
+    },
+    {
+      "id": 34,
+      "name": "Trail Sandals",
+      "brand": "Stride",
+      "category": "shoes",
+      "priceCents": 4700,
+      "discountPercent": 0,
+      "rating": 2.8,
+      "reviewCount": 984,
+      "stock": 51,
+      "emoji": "🩴",
+      "tags": [
+        "summer",
+        "beach"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2021-12-13"
+    },
+    {
+      "id": 35,
+      "name": "Cozy Coffee Maker",
+      "brand": "Hearth",
+      "category": "home",
+      "priceCents": 25700,
+      "discountPercent": 0,
+      "rating": 2.9,
+      "reviewCount": 398,
+      "stock": 42,
+      "emoji": "☕",
+      "tags": [
+        "kitchen",
+        "coffee"
+      ],
+      "description": "A customer favourite, built to last.",
+      "createdAt": "2022-04-15"
+    },
+    {
+      "id": 36,
+      "name": "Illustrated Mystery Novel",
+      "brand": "Lantern Books",
+      "category": "books",
+      "priceCents": 999,
+      "discountPercent": 0,
+      "rating": 3.7,
+      "reviewCount": 2271,
+      "stock": 90,
+      "emoji": "📕",
+      "tags": [
+        "fiction",
+        "mystery"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2021-12-27"
+    },
+    {
+      "id": 37,
+      "name": "Natural Lipstick",
+      "brand": "Lumière",
+      "category": "beauty",
+      "priceCents": 1449,
+      "discountPercent": 0,
+      "rating": 4.2,
+      "reviewCount": 528,
+      "stock": 1,
+      "emoji": "💄",
+      "tags": [
+        "makeup"
+      ],
+      "description": "Great value with a clean, simple design.",
+      "createdAt": "2022-07-13"
+    },
+    {
+      "id": 38,
+      "name": "Adventure Kite",
+      "brand": "Little Giants",
+      "category": "toys",
+      "priceCents": 3649,
+      "discountPercent": 25,
+      "rating": 2.8,
+      "reviewCount": 482,
+      "stock": 78,
+      "emoji": "🪁",
+      "tags": [
+        "outdoor",
+        "kids"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2022-05-24"
+    },
+    {
+      "id": 39,
+      "name": "X Mirrorless Camera",
+      "brand": "Nordwave",
+      "category": "electronics",
+      "priceCents": 64949,
+      "discountPercent": 10,
+      "rating": 4,
+      "reviewCount": 1863,
+      "stock": 59,
+      "emoji": "📷",
+      "tags": [
+        "photo",
+        "camera"
+      ],
+      "description": "Thoughtfully made with quality materials.",
+      "createdAt": "2022-06-18"
+    },
+    {
+      "id": 40,
+      "name": "Classic Hoodie",
+      "brand": "Urbanite",
+      "category": "clothing",
+      "priceCents": 3899,
+      "discountPercent": 0,
+      "rating": 3.6,
+      "reviewCount": 968,
+      "stock": 133,
+      "emoji": "🧥",
+      "tags": [
+        "casual",
+        "warm"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2021-03-07"
+    },
+    {
+      "id": 41,
+      "name": "Classic Sneakers",
+      "brand": "Stride",
+      "category": "shoes",
+      "priceCents": 11549,
+      "discountPercent": 0,
+      "rating": 3.3,
+      "reviewCount": 1713,
+      "stock": 43,
+      "emoji": "👟",
+      "tags": [
+        "casual",
+        "everyday"
+      ],
+      "description": "Lightweight, practical and easy to use.",
+      "createdAt": "2021-05-12"
+    },
+    {
+      "id": 42,
+      "name": "Minimal Chef's Knife",
+      "brand": "Brightside",
+      "category": "home",
+      "priceCents": 13499,
+      "discountPercent": 0,
+      "rating": 4.7,
+      "reviewCount": 489,
+      "stock": 73,
+      "emoji": "🔪",
+      "tags": [
+        "kitchen",
+        "cooking"
+      ],
+      "description": "Lightweight, practical and easy to use.",
+      "createdAt": "2022-03-05"
+    },
+    {
+      "id": 43,
+      "name": "The Complete JavaScript Guide",
+      "brand": "Northfield",
+      "category": "books",
+      "priceCents": 5449,
+      "discountPercent": 0,
+      "rating": 3.4,
+      "reviewCount": 493,
+      "stock": 71,
+      "emoji": "📘",
+      "tags": [
+        "programming",
+        "learning"
+      ],
+      "description": "Lightweight, practical and easy to use.",
+      "createdAt": "2021-11-01"
+    },
+    {
+      "id": 44,
+      "name": "Training Yoga Mat",
+      "brand": "Apex",
+      "category": "sports",
+      "priceCents": 3999,
+      "discountPercent": 0,
+      "rating": 4.8,
+      "reviewCount": 456,
+      "stock": 14,
+      "emoji": "🧘",
+      "tags": [
+        "yoga",
+        "fitness"
+      ],
+      "description": "Thoughtfully made with quality materials.",
+      "createdAt": "2021-02-25"
+    },
+    {
+      "id": 45,
+      "name": "Gentle Nail Polish",
+      "brand": "Pure Bloom",
+      "category": "beauty",
+      "priceCents": 1000,
+      "discountPercent": 10,
+      "rating": 3.9,
+      "reviewCount": 29,
+      "stock": 0,
+      "emoji": "💅",
+      "tags": [
+        "makeup",
+        "nails"
+      ],
+      "description": "Everything you need, nothing you don't.",
+      "createdAt": "2021-11-19"
+    },
+    {
+      "id": 46,
+      "name": "Rainbow Kite",
+      "brand": "Starcraft Toys",
+      "category": "toys",
+      "priceCents": 1699,
+      "discountPercent": 10,
+      "rating": 4.1,
+      "reviewCount": 1820,
+      "stock": 125,
+      "emoji": "🪁",
+      "tags": [
+        "outdoor",
+        "kids"
+      ],
+      "description": "Lightweight, practical and easy to use.",
+      "createdAt": "2021-05-03"
+    },
+    {
+      "id": 47,
+      "name": "Essential Slim Jeans",
+      "brand": "Mello",
+      "category": "clothing",
+      "priceCents": 5799,
+      "discountPercent": 0,
+      "rating": 4.1,
+      "reviewCount": 313,
+      "stock": 116,
+      "emoji": "👖",
+      "tags": [
+        "denim",
+        "casual"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2021-09-27"
+    },
+    {
+      "id": 48,
+      "name": "Classic Sandals",
+      "brand": "Cobble",
+      "category": "shoes",
+      "priceCents": 5795,
+      "discountPercent": 0,
+      "rating": 3.1,
+      "reviewCount": 74,
+      "stock": 81,
+      "emoji": "🩴",
+      "tags": [
+        "summer",
+        "beach"
+      ],
+      "description": "A customer favourite, built to last.",
+      "createdAt": "2022-02-09"
+    },
+    {
+      "id": 49,
+      "name": "Minimal Plant Pot",
+      "brand": "Nestly",
+      "category": "home",
+      "priceCents": 2900,
+      "discountPercent": 0,
+      "rating": 4.9,
+      "reviewCount": 357,
+      "stock": 128,
+      "emoji": "🪴",
+      "tags": [
+        "decor",
+        "garden"
+      ],
+      "description": "Everything you need, nothing you don't.",
+      "createdAt": "2021-12-08"
+    },
+    {
+      "id": 50,
+      "name": "Pocket Travel Guide",
+      "brand": "Quillstone",
+      "category": "books",
+      "priceCents": 1399,
+      "discountPercent": 0,
+      "rating": 4,
+      "reviewCount": 2136,
+      "stock": 0,
+      "emoji": "📙",
+      "tags": [
+        "travel"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2021-06-01"
+    },
+    {
+      "id": 51,
+      "name": "Elite Dumbbell Set",
+      "brand": "Apex",
+      "category": "sports",
+      "priceCents": 9699,
+      "discountPercent": 0,
+      "rating": 2.8,
+      "reviewCount": 745,
+      "stock": 86,
+      "emoji": "🏋️",
+      "tags": [
+        "fitness",
+        "strength"
+      ],
+      "description": "Great value with a clean, simple design.",
+      "createdAt": "2021-02-06"
+    },
+    {
+      "id": 52,
+      "name": "Hydrating Shampoo",
+      "brand": "Pure Bloom",
+      "category": "beauty",
+      "priceCents": 1349,
+      "discountPercent": 10,
+      "rating": 2.9,
+      "reviewCount": 57,
+      "stock": 149,
+      "emoji": "🧴",
+      "tags": [
+        "haircare"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2021-04-19"
+    },
+    {
+      "id": 53,
+      "name": "Rainbow Building Blocks",
+      "brand": "Little Giants",
+      "category": "toys",
+      "priceCents": 9699,
+      "discountPercent": 0,
+      "rating": 3.3,
+      "reviewCount": 128,
+      "stock": 15,
+      "emoji": "🧱",
+      "tags": [
+        "kids",
+        "creative"
+      ],
+      "description": "Everything you need, nothing you don't.",
+      "createdAt": "2022-01-07"
+    },
+    {
+      "id": 54,
+      "name": "Max Mechanical Keyboard",
+      "brand": "Voltix",
+      "category": "electronics",
+      "priceCents": 9695,
+      "discountPercent": 25,
+      "rating": 3.4,
+      "reviewCount": 169,
+      "stock": 0,
+      "emoji": "⌨️",
+      "tags": [
+        "computer",
+        "gaming"
+      ],
+      "description": "Thoughtfully made with quality materials.",
+      "createdAt": "2022-06-19"
+    },
+    {
+      "id": 55,
+      "name": "Trail Dress Shoes",
+      "brand": "Stride",
+      "category": "shoes",
+      "priceCents": 7899,
+      "discountPercent": 0,
+      "rating": 3.7,
+      "reviewCount": 53,
+      "stock": 72,
+      "emoji": "👞",
+      "tags": [
+        "leather",
+        "formal"
+      ],
+      "description": "A customer favourite, built to last.",
+      "createdAt": "2021-07-24"
+    },
+    {
+      "id": 56,
+      "name": "Ceramic Coffee Maker",
+      "brand": "Oak & Ivy",
+      "category": "home",
+      "priceCents": 11149,
+      "discountPercent": 0,
+      "rating": 3.8,
+      "reviewCount": 66,
+      "stock": 134,
+      "emoji": "☕",
+      "tags": [
+        "kitchen",
+        "coffee"
+      ],
+      "description": "Thoughtfully made with quality materials.",
+      "createdAt": "2022-05-06"
+    },
+    {
+      "id": 57,
+      "name": "Paperback Travel Guide",
+      "brand": "Northfield",
+      "category": "books",
+      "priceCents": 995,
+      "discountPercent": 0,
+      "rating": 3.8,
+      "reviewCount": 235,
+      "stock": 0,
+      "emoji": "📙",
+      "tags": [
+        "travel"
+      ],
+      "description": "Everything you need, nothing you don't.",
+      "createdAt": "2022-05-13"
+    },
+    {
+      "id": 58,
+      "name": "Explorer Water Bottle",
+      "brand": "Trailhawk",
+      "category": "sports",
+      "priceCents": 3295,
+      "discountPercent": 0,
+      "rating": 3.6,
+      "reviewCount": 123,
+      "stock": 117,
+      "emoji": "🧴",
+      "tags": [
+        "hydration",
+        "outdoor"
+      ],
+      "description": "Great value with a clean, simple design.",
+      "createdAt": "2021-01-29"
+    },
+    {
+      "id": 59,
+      "name": "Deluxe Kite",
+      "brand": "Starcraft Toys",
+      "category": "toys",
+      "priceCents": 3595,
+      "discountPercent": 0,
+      "rating": 3,
+      "reviewCount": 2203,
+      "stock": 45,
+      "emoji": "🪁",
+      "tags": [
+        "outdoor",
+        "kids"
+      ],
+      "description": "Thoughtfully made with quality materials.",
+      "createdAt": "2022-04-24"
+    },
+    {
+      "id": 60,
+      "name": "Ultra Smartphone",
+      "brand": "Pixelon",
+      "category": "electronics",
+      "priceCents": 73299,
+      "discountPercent": 0,
+      "rating": 3.5,
+      "reviewCount": 760,
+      "stock": 140,
+      "emoji": "📱",
+      "tags": [
+        "phone",
+        "mobile"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2022-01-02"
+    },
+    {
+      "id": 61,
+      "name": "Vintage Baseball Cap",
+      "brand": "Mello",
+      "category": "clothing",
+      "priceCents": 1100,
+      "discountPercent": 0,
+      "rating": 4.8,
+      "reviewCount": 326,
+      "stock": 1,
+      "emoji": "🧢",
+      "tags": [
+        "summer",
+        "accessory"
+      ],
+      "description": "Lightweight, practical and easy to use.",
+      "createdAt": "2021-03-01"
+    },
+    {
+      "id": 62,
+      "name": "Cloud Running Shoes",
+      "brand": "Swiftfoot",
+      "category": "shoes",
+      "priceCents": 15595,
+      "discountPercent": 0,
+      "rating": 4.4,
+      "reviewCount": 515,
+      "stock": 108,
+      "emoji": "👟",
+      "tags": [
+        "running",
+        "sport"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2021-10-10"
+    },
+    {
+      "id": 63,
+      "name": "Illustrated Children's Picture Book",
+      "brand": "Northfield",
+      "category": "books",
+      "priceCents": 999,
+      "discountPercent": 0,
+      "rating": 4.4,
+      "reviewCount": 2194,
+      "stock": 75,
+      "emoji": "📒",
+      "tags": [
+        "kids",
+        "picture"
+      ],
+      "description": "Great value with a clean, simple design.",
+      "createdAt": "2021-11-12"
+    },
+    {
+      "id": 64,
+      "name": "Elite Tennis Racket",
+      "brand": "Trailhawk",
+      "category": "sports",
+      "priceCents": 3999,
+      "discountPercent": 0,
+      "rating": 4.8,
+      "reviewCount": 1520,
+      "stock": 62,
+      "emoji": "🎾",
+      "tags": [
+        "tennis",
+        "outdoor"
+      ],
+      "description": "Great value with a clean, simple design.",
+      "createdAt": "2021-02-23"
+    },
+    {
+      "id": 65,
+      "name": "Classic Remote Control Car",
+      "brand": "Starcraft Toys",
+      "category": "toys",
+      "priceCents": 12795,
+      "discountPercent": 0,
+      "rating": 3.6,
+      "reviewCount": 86,
+      "stock": 137,
+      "emoji": "🏎️",
+      "tags": [
+        "kids",
+        "remote"
+      ],
+      "description": "A customer favourite, built to last.",
+      "createdAt": "2021-01-14"
+    },
+    {
+      "id": 66,
+      "name": "Max Wireless Headphones",
+      "brand": "Auralis",
+      "category": "electronics",
+      "priceCents": 11449,
+      "discountPercent": 0,
+      "rating": 3.6,
+      "reviewCount": 61,
+      "stock": 103,
+      "emoji": "🎧",
+      "tags": [
+        "audio",
+        "wireless",
+        "bluetooth"
+      ],
+      "description": "Lightweight, practical and easy to use.",
+      "createdAt": "2022-02-18"
+    },
+    {
+      "id": 67,
+      "name": "Everyday Slim Jeans",
+      "brand": "Coastline",
+      "category": "clothing",
+      "priceCents": 3695,
+      "discountPercent": 0,
+      "rating": 3.6,
+      "reviewCount": 1085,
+      "stock": 46,
+      "emoji": "👖",
+      "tags": [
+        "denim",
+        "casual"
+      ],
+      "description": "Everything you need, nothing you don't.",
+      "createdAt": "2022-01-05"
+    },
+    {
+      "id": 68,
+      "name": "Cozy Plant Pot",
+      "brand": "Oak & Ivy",
+      "category": "home",
+      "priceCents": 3300,
+      "discountPercent": 0,
+      "rating": 2.8,
+      "reviewCount": 0,
+      "stock": 84,
+      "emoji": "🪴",
+      "tags": [
+        "decor",
+        "garden"
+      ],
+      "description": "A customer favourite, built to last.",
+      "createdAt": "2022-01-30"
+    },
+    {
+      "id": 69,
+      "name": "The Complete Mystery Novel",
+      "brand": "Northfield",
+      "category": "books",
+      "priceCents": 1249,
+      "discountPercent": 0,
+      "rating": 4,
+      "reviewCount": 449,
+      "stock": 34,
+      "emoji": "📕",
+      "tags": [
+        "fiction",
+        "mystery"
+      ],
+      "description": "Thoughtfully made with quality materials.",
+      "createdAt": "2022-07-11"
+    },
+    {
+      "id": 70,
+      "name": "Vegan Nail Polish",
+      "brand": "Lumière",
+      "category": "beauty",
+      "priceCents": 1095,
+      "discountPercent": 0,
+      "rating": 3,
+      "reviewCount": 761,
+      "stock": 129,
+      "emoji": "💅",
+      "tags": [
+        "makeup",
+        "nails"
+      ],
+      "description": "A customer favourite, built to last.",
+      "createdAt": "2021-03-09"
+    },
+    {
+      "id": 71,
+      "name": "Mega Remote Control Car",
+      "brand": "Wonderbox",
+      "category": "toys",
+      "priceCents": 4299,
+      "discountPercent": 0,
+      "rating": 2.7,
+      "reviewCount": 29,
+      "stock": 74,
+      "emoji": "🏎️",
+      "tags": [
+        "kids",
+        "remote"
+      ],
+      "description": "A customer favourite, built to last.",
+      "createdAt": "2022-02-03"
+    },
+    {
+      "id": 72,
+      "name": "Trail Sneakers",
+      "brand": "Cobble",
+      "category": "shoes",
+      "priceCents": 6999,
+      "discountPercent": 0,
+      "rating": 3.7,
+      "reviewCount": 1225,
+      "stock": 75,
+      "emoji": "👟",
+      "tags": [
+        "casual",
+        "everyday"
+      ],
+      "description": "Everything you need, nothing you don't.",
+      "createdAt": "2021-04-16"
+    },
+    {
+      "id": 73,
+      "name": "Collector's Science Fiction Novel",
+      "brand": "Lantern Books",
+      "category": "books",
+      "priceCents": 1649,
+      "discountPercent": 30,
+      "rating": 3.3,
+      "reviewCount": 344,
+      "stock": 90,
+      "emoji": "📕",
+      "tags": [
+        "fiction",
+        "space"
+      ],
+      "description": "Great value with a clean, simple design.",
+      "createdAt": "2021-06-15"
+    },
+    {
+      "id": 74,
+      "name": "Rainbow Puzzle 1000 Pieces",
+      "brand": "Little Giants",
+      "category": "toys",
+      "priceCents": 1999,
+      "discountPercent": 0,
+      "rating": 3.6,
+      "reviewCount": 715,
+      "stock": 0,
+      "emoji": "🧩",
+      "tags": [
+        "puzzle",
+        "family"
+      ],
+      "description": "Everything you need, nothing you don't.",
+      "createdAt": "2022-06-16"
+    },
+    {
+      "id": 75,
+      "name": "Mini Smartphone",
+      "brand": "Auralis",
+      "category": "electronics",
+      "priceCents": 52199,
+      "discountPercent": 30,
+      "rating": 3.8,
+      "reviewCount": 670,
+      "stock": 46,
+      "emoji": "📱",
+      "tags": [
+        "phone",
+        "mobile"
+      ],
+      "description": "Thoughtfully made with quality materials.",
+      "createdAt": "2021-07-24"
+    },
+    {
+      "id": 76,
+      "name": "Light High Heels",
+      "brand": "Peakline",
+      "category": "shoes",
+      "priceCents": 5699,
+      "discountPercent": 0,
+      "rating": 4.9,
+      "reviewCount": 1,
+      "stock": 11,
+      "emoji": "👠",
+      "tags": [
+        "formal",
+        "party"
+      ],
+      "description": "Lightweight, practical and easy to use.",
+      "createdAt": "2021-12-17"
+    },
+    {
+      "id": 77,
+      "name": "Modern Throw Blanket",
+      "brand": "Hearth",
+      "category": "home",
+      "priceCents": 6449,
+      "discountPercent": 0,
+      "rating": 4.4,
+      "reviewCount": 103,
+      "stock": 106,
+      "emoji": "🛋️",
+      "tags": [
+        "decor",
+        "warm"
+      ],
+      "description": "Lightweight, practical and easy to use.",
+      "createdAt": "2021-06-18"
+    },
+    {
+      "id": 78,
+      "name": "Paperback Cookbook",
+      "brand": "Northfield",
+      "category": "books",
+      "priceCents": 3299,
+      "discountPercent": 0,
+      "rating": 4.4,
+      "reviewCount": 793,
+      "stock": 42,
+      "emoji": "📗",
+      "tags": [
+        "cooking",
+        "food"
+      ],
+      "description": "Everything you need, nothing you don't.",
+      "createdAt": "2022-02-03"
+    },
+    {
+      "id": 79,
+      "name": "Pro Bicycle Helmet",
+      "brand": "Kinetic",
+      "category": "sports",
+      "priceCents": 10300,
+      "discountPercent": 10,
+      "rating": 4.7,
+      "reviewCount": 246,
+      "stock": 128,
+      "emoji": "🚴",
+      "tags": [
+        "cycling",
+        "safety"
+      ],
+      "description": "A customer favourite, built to last.",
+      "createdAt": "2021-05-20"
+    },
+    {
+      "id": 80,
+      "name": "Radiant Perfume",
+      "brand": "Velvet Leaf",
+      "category": "beauty",
+      "priceCents": 9899,
+      "discountPercent": 0,
+      "rating": 3.6,
+      "reviewCount": 3,
+      "stock": 138,
+      "emoji": "🌸",
+      "tags": [
+        "fragrance"
+      ],
+      "description": "A customer favourite, built to last.",
+      "createdAt": "2022-03-21"
+    },
+    {
+      "id": 81,
+      "name": "Rainbow Remote Control Car",
+      "brand": "Playful Pine",
+      "category": "toys",
+      "priceCents": 5199,
+      "discountPercent": 0,
+      "rating": 4,
+      "reviewCount": 250,
+      "stock": 0,
+      "emoji": "🏎️",
+      "tags": [
+        "kids",
+        "remote"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2021-04-05"
+    },
+    {
+      "id": 82,
+      "name": "Pro Wireless Mouse",
+      "brand": "Voltix",
+      "category": "electronics",
+      "priceCents": 3399,
+      "discountPercent": 0,
+      "rating": 3.5,
+      "reviewCount": 98,
+      "stock": 66,
+      "emoji": "🖱️",
+      "tags": [
+        "computer",
+        "wireless"
+      ],
+      "description": "Lightweight, practical and easy to use.",
+      "createdAt": "2021-09-19"
+    },
+    {
+      "id": 83,
+      "name": "Relaxed Slim Jeans",
+      "brand": "Mello",
+      "category": "clothing",
+      "priceCents": 4399,
+      "discountPercent": 0,
+      "rating": 3.4,
+      "reviewCount": 2119,
+      "stock": 146,
+      "emoji": "👖",
+      "tags": [
+        "denim",
+        "casual"
+      ],
+      "description": "A customer favourite, built to last.",
+      "createdAt": "2022-04-16"
+    },
+    {
+      "id": 84,
+      "name": "Comfort Sandals",
+      "brand": "Stride",
+      "category": "shoes",
+      "priceCents": 2799,
+      "discountPercent": 20,
+      "rating": 4.7,
+      "reviewCount": 25,
+      "stock": 49,
+      "emoji": "🩴",
+      "tags": [
+        "summer",
+        "beach"
+      ],
+      "description": "Thoughtfully made with quality materials.",
+      "createdAt": "2022-01-13"
+    },
+    {
+      "id": 85,
+      "name": "Ceramic Chef's Knife",
+      "brand": "Hearth",
+      "category": "home",
+      "priceCents": 1949,
+      "discountPercent": 0,
+      "rating": 4.6,
+      "reviewCount": 1227,
+      "stock": 87,
+      "emoji": "🔪",
+      "tags": [
+        "kitchen",
+        "cooking"
+      ],
+      "description": "A customer favourite, built to last.",
+      "createdAt": "2021-05-26"
+    },
+    {
+      "id": 86,
+      "name": "Beginner's JavaScript Guide",
+      "brand": "Northfield",
+      "category": "books",
+      "priceCents": 5749,
+      "discountPercent": 0,
+      "rating": 4.1,
+      "reviewCount": 38,
+      "stock": 0,
+      "emoji": "📘",
+      "tags": [
+        "programming",
+        "learning"
+      ],
+      "description": "Lightweight, practical and easy to use.",
+      "createdAt": "2022-07-25"
+    },
+    {
+      "id": 87,
+      "name": "All-Weather Bicycle Helmet",
+      "brand": "Trailhawk",
+      "category": "sports",
+      "priceCents": 3399,
+      "discountPercent": 0,
+      "rating": 3.2,
+      "reviewCount": 1244,
+      "stock": 65,
+      "emoji": "🚴",
+      "tags": [
+        "cycling",
+        "safety"
+      ],
+      "description": "Great value with a clean, simple design.",
+      "createdAt": "2021-07-08"
+    },
+    {
+      "id": 88,
+      "name": "Hydrating Lipstick",
+      "brand": "Lumière",
+      "category": "beauty",
+      "priceCents": 3800,
+      "discountPercent": 0,
+      "rating": 4.3,
+      "reviewCount": 932,
+      "stock": 67,
+      "emoji": "💄",
+      "tags": [
+        "makeup"
+      ],
+      "description": "Everything you need, nothing you don't.",
+      "createdAt": "2021-03-10"
+    },
+    {
+      "id": 89,
+      "name": "Deluxe Building Blocks",
+      "brand": "Wonderbox",
+      "category": "toys",
+      "priceCents": 8449,
+      "discountPercent": 0,
+      "rating": 4.4,
+      "reviewCount": 96,
+      "stock": 149,
+      "emoji": "🧱",
+      "tags": [
+        "kids",
+        "creative"
+      ],
+      "description": "Thoughtfully made with quality materials.",
+      "createdAt": "2021-01-20"
+    },
+    {
+      "id": 90,
+      "name": "S2 Smartphone",
+      "brand": "Voltix",
+      "category": "electronics",
+      "priceCents": 73299,
+      "discountPercent": 0,
+      "rating": 3.7,
+      "reviewCount": 485,
+      "stock": 109,
+      "emoji": "📱",
+      "tags": [
+        "phone",
+        "mobile"
+      ],
+      "description": "Thoughtfully made with quality materials.",
+      "createdAt": "2021-01-08"
+    },
+    {
+      "id": 91,
+      "name": "Relaxed Baseball Cap",
+      "brand": "Coastline",
+      "category": "clothing",
+      "priceCents": 3099,
+      "discountPercent": 30,
+      "rating": 4,
+      "reviewCount": 1989,
+      "stock": 122,
+      "emoji": "🧢",
+      "tags": [
+        "summer",
+        "accessory"
+      ],
+      "description": "Thoughtfully made with quality materials.",
+      "createdAt": "2021-05-24"
+    },
+    {
+      "id": 92,
+      "name": "Light Leather Boots",
+      "brand": "Swiftfoot",
+      "category": "shoes",
+      "priceCents": 17300,
+      "discountPercent": 0,
+      "rating": 4.6,
+      "reviewCount": 6,
+      "stock": 108,
+      "emoji": "🥾",
+      "tags": [
+        "leather",
+        "winter"
+      ],
+      "description": "Everything you need, nothing you don't.",
+      "createdAt": "2022-05-01"
+    },
+    {
+      "id": 93,
+      "name": "Minimal Coffee Maker",
+      "brand": "Nestly",
+      "category": "home",
+      "priceCents": 7499,
+      "discountPercent": 0,
+      "rating": 4.6,
+      "reviewCount": 1311,
+      "stock": 105,
+      "emoji": "☕",
+      "tags": [
+        "kitchen",
+        "coffee"
+      ],
+      "description": "A customer favourite, built to last.",
+      "createdAt": "2022-01-31"
+    },
+    {
+      "id": 94,
+      "name": "Illustrated JavaScript Guide",
+      "brand": "Penrose Press",
+      "category": "books",
+      "priceCents": 2399,
+      "discountPercent": 0,
+      "rating": 3.4,
+      "reviewCount": 446,
+      "stock": 71,
+      "emoji": "📘",
+      "tags": [
+        "programming",
+        "learning"
+      ],
+      "description": "Great value with a clean, simple design.",
+      "createdAt": "2022-02-23"
+    },
+    {
+      "id": 95,
+      "name": "Training Bicycle Helmet",
+      "brand": "Apex",
+      "category": "sports",
+      "priceCents": 10099,
+      "discountPercent": 20,
+      "rating": 3.1,
+      "reviewCount": 47,
+      "stock": 126,
+      "emoji": "🚴",
+      "tags": [
+        "cycling",
+        "safety"
+      ],
+      "description": "Everything you need, nothing you don't.",
+      "createdAt": "2022-02-18"
+    },
+    {
+      "id": 96,
+      "name": "Vegan Shampoo",
+      "brand": "Velvet Leaf",
+      "category": "beauty",
+      "priceCents": 2295,
+      "discountPercent": 0,
+      "rating": 4.2,
+      "reviewCount": 1047,
+      "stock": 0,
+      "emoji": "🧴",
+      "tags": [
+        "haircare"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2022-05-26"
+    },
+    {
+      "id": 97,
+      "name": "Classic Board Game",
+      "brand": "Little Giants",
+      "category": "toys",
+      "priceCents": 2200,
+      "discountPercent": 0,
+      "rating": 3.2,
+      "reviewCount": 1524,
+      "stock": 46,
+      "emoji": "🎲",
+      "tags": [
+        "family",
+        "game"
+      ],
+      "description": "A customer favourite, built to last.",
+      "createdAt": "2022-03-20"
+    },
+    {
+      "id": 98,
+      "name": "S2 Laptop",
+      "brand": "Auralis",
+      "category": "electronics",
+      "priceCents": 79949,
+      "discountPercent": 0,
+      "rating": 3.6,
+      "reviewCount": 566,
+      "stock": 46,
+      "emoji": "💻",
+      "tags": [
+        "computer",
+        "work"
+      ],
+      "description": "Great value with a clean, simple design.",
+      "createdAt": "2021-12-25"
+    },
+    {
+      "id": 99,
+      "name": "Vintage Summer Dress",
+      "brand": "Urbanite",
+      "category": "clothing",
+      "priceCents": 5699,
+      "discountPercent": 15,
+      "rating": 4.4,
+      "reviewCount": 392,
+      "stock": 103,
+      "emoji": "👗",
+      "tags": [
+        "summer",
+        "dress"
+      ],
+      "description": "Thoughtfully made with quality materials.",
+      "createdAt": "2022-06-10"
+    },
+    {
+      "id": 100,
+      "name": "Comfort High Heels",
+      "brand": "Swiftfoot",
+      "category": "shoes",
+      "priceCents": 7495,
+      "discountPercent": 15,
+      "rating": 2.7,
+      "reviewCount": 2115,
+      "stock": 22,
+      "emoji": "👠",
+      "tags": [
+        "formal",
+        "party"
+      ],
+      "description": "A customer favourite, built to last.",
+      "createdAt": "2022-02-20"
+    },
+    {
+      "id": 101,
+      "name": "Adventure Teddy Bear",
+      "brand": "Starcraft Toys",
+      "category": "toys",
+      "priceCents": 2200,
+      "discountPercent": 0,
+      "rating": 3.3,
+      "reviewCount": 2099,
+      "stock": 22,
+      "emoji": "🧸",
+      "tags": [
+        "kids",
+        "soft"
+      ],
+      "description": "Thoughtfully made with quality materials.",
+      "createdAt": "2021-06-26"
+    },
+    {
+      "id": 102,
+      "name": "Air Smartphone",
+      "brand": "Auralis",
+      "category": "electronics",
+      "priceCents": 23099,
+      "discountPercent": 0,
+      "rating": 4.7,
+      "reviewCount": 753,
+      "stock": 126,
+      "emoji": "📱",
+      "tags": [
+        "phone",
+        "mobile"
+      ],
+      "description": "Lightweight, practical and easy to use.",
+      "createdAt": "2022-04-01"
+    },
+    {
+      "id": 103,
+      "name": "Relaxed Wool Scarf",
+      "brand": "Mello",
+      "category": "clothing",
+      "priceCents": 3399,
+      "discountPercent": 0,
+      "rating": 3,
+      "reviewCount": 1255,
+      "stock": 116,
+      "emoji": "🧣",
+      "tags": [
+        "winter",
+        "warm",
+        "wool"
+      ],
+      "description": "Great value with a clean, simple design.",
+      "createdAt": "2022-03-02"
+    },
+    {
+      "id": 104,
+      "name": "Light Dress Shoes",
+      "brand": "Cobble",
+      "category": "shoes",
+      "priceCents": 11499,
+      "discountPercent": 0,
+      "rating": 2.9,
+      "reviewCount": 964,
+      "stock": 17,
+      "emoji": "👞",
+      "tags": [
+        "leather",
+        "formal"
+      ],
+      "description": "Everything you need, nothing you don't.",
+      "createdAt": "2021-02-19"
+    },
+    {
+      "id": 105,
+      "name": "Cozy Scented Candle",
+      "brand": "Hearth",
+      "category": "home",
+      "priceCents": 2499,
+      "discountPercent": 0,
+      "rating": 2.9,
+      "reviewCount": 715,
+      "stock": 132,
+      "emoji": "🕯️",
+      "tags": [
+        "decor",
+        "relax"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2021-11-30"
+    },
+    {
+      "id": 106,
+      "name": "Daily Lipstick",
+      "brand": "Solenne",
+      "category": "beauty",
+      "priceCents": 1099,
+      "discountPercent": 0,
+      "rating": 2.7,
+      "reviewCount": 2170,
+      "stock": 133,
+      "emoji": "💄",
+      "tags": [
+        "makeup"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2021-05-31"
+    },
+    {
+      "id": 107,
+      "name": "Adventure Puzzle 1000 Pieces",
+      "brand": "Wonderbox",
+      "category": "toys",
+      "priceCents": 1199,
+      "discountPercent": 0,
+      "rating": 4.3,
+      "reviewCount": 625,
+      "stock": 95,
+      "emoji": "🧩",
+      "tags": [
+        "puzzle",
+        "family"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2022-04-21"
+    },
+    {
+      "id": 108,
+      "name": "Ultra Wireless Mouse",
+      "brand": "Voltix",
+      "category": "electronics",
+      "priceCents": 1895,
+      "discountPercent": 0,
+      "rating": 3.6,
+      "reviewCount": 835,
+      "stock": 39,
+      "emoji": "🖱️",
+      "tags": [
+        "computer",
+        "wireless"
+      ],
+      "description": "Everything you need, nothing you don't.",
+      "createdAt": "2022-05-13"
+    },
+    {
+      "id": 109,
+      "name": "Everyday Wool Scarf",
+      "brand": "Fernwood",
+      "category": "clothing",
+      "priceCents": 3799,
+      "discountPercent": 0,
+      "rating": 3.6,
+      "reviewCount": 269,
+      "stock": 44,
+      "emoji": "🧣",
+      "tags": [
+        "winter",
+        "warm",
+        "wool"
+      ],
+      "description": "Everything you need, nothing you don't.",
+      "createdAt": "2022-05-14"
+    },
+    {
+      "id": 110,
+      "name": "Trail High Heels",
+      "brand": "Stride",
+      "category": "shoes",
+      "priceCents": 11899,
+      "discountPercent": 0,
+      "rating": 4.5,
+      "reviewCount": 266,
+      "stock": 126,
+      "emoji": "👠",
+      "tags": [
+        "formal",
+        "party"
+      ],
+      "description": "Thoughtfully made with quality materials.",
+      "createdAt": "2022-03-12"
+    },
+    {
+      "id": 111,
+      "name": "Illustrated Cookbook",
+      "brand": "Quillstone",
+      "category": "books",
+      "priceCents": 2995,
+      "discountPercent": 0,
+      "rating": 4.2,
+      "reviewCount": 857,
+      "stock": 144,
+      "emoji": "📗",
+      "tags": [
+        "cooking",
+        "food"
+      ],
+      "description": "Great value with a clean, simple design.",
+      "createdAt": "2021-07-01"
+    },
+    {
+      "id": 112,
+      "name": "Training Tennis Racket",
+      "brand": "Kinetic",
+      "category": "sports",
+      "priceCents": 13799,
+      "discountPercent": 0,
+      "rating": 2.8,
+      "reviewCount": 779,
+      "stock": 112,
+      "emoji": "🎾",
+      "tags": [
+        "tennis",
+        "outdoor"
+      ],
+      "description": "Everything you need, nothing you don't.",
+      "createdAt": "2021-01-23"
+    },
+    {
+      "id": 113,
+      "name": "S2 Mirrorless Camera",
+      "brand": "Auralis",
+      "category": "electronics",
+      "priceCents": 144095,
+      "discountPercent": 20,
+      "rating": 4.8,
+      "reviewCount": 4,
+      "stock": 72,
+      "emoji": "📷",
+      "tags": [
+        "photo",
+        "camera"
+      ],
+      "description": "A customer favourite, built to last.",
+      "createdAt": "2022-04-16"
+    },
+    {
+      "id": 114,
+      "name": "Everyday Hoodie",
+      "brand": "Urbanite",
+      "category": "clothing",
+      "priceCents": 8100,
+      "discountPercent": 15,
+      "rating": 4.5,
+      "reviewCount": 4,
+      "stock": 142,
+      "emoji": "🧥",
+      "tags": [
+        "casual",
+        "warm"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2021-09-04"
+    },
+    {
+      "id": 115,
+      "name": "Modern Chef's Knife",
+      "brand": "Oak & Ivy",
+      "category": "home",
+      "priceCents": 6399,
+      "discountPercent": 15,
+      "rating": 4.1,
+      "reviewCount": 1383,
+      "stock": 113,
+      "emoji": "🔪",
+      "tags": [
+        "kitchen",
+        "cooking"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2021-09-14"
+    },
+    {
+      "id": 116,
+      "name": "Hydrating Perfume",
+      "brand": "Lumière",
+      "category": "beauty",
+      "priceCents": 6895,
+      "discountPercent": 30,
+      "rating": 2.9,
+      "reviewCount": 42,
+      "stock": 126,
+      "emoji": "🌸",
+      "tags": [
+        "fragrance"
+      ],
+      "description": "Everything you need, nothing you don't.",
+      "createdAt": "2021-10-26"
+    },
+    {
+      "id": 117,
+      "name": "Deluxe Teddy Bear",
+      "brand": "Wonderbox",
+      "category": "toys",
+      "priceCents": 3949,
+      "discountPercent": 0,
+      "rating": 4.8,
+      "reviewCount": 1099,
+      "stock": 0,
+      "emoji": "🧸",
+      "tags": [
+        "kids",
+        "soft"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2021-08-17"
+    },
+    {
+      "id": 118,
+      "name": "Rustic Throw Blanket",
+      "brand": "Hearth",
+      "category": "home",
+      "priceCents": 6299,
+      "discountPercent": 0,
+      "rating": 3.2,
+      "reviewCount": 916,
+      "stock": 24,
+      "emoji": "🛋️",
+      "tags": [
+        "decor",
+        "warm"
+      ],
+      "description": "Our best-reviewed choice in its range.",
+      "createdAt": "2021-07-24"
+    },
+    {
+      "id": 119,
+      "name": "Beginner's Children's Picture Book",
+      "brand": "Northfield",
+      "category": "books",
+      "priceCents": 895,
+      "discountPercent": 0,
+      "rating": 3.9,
+      "reviewCount": 442,
+      "stock": 100,
+      "emoji": "📒",
+      "tags": [
+        "kids",
+        "picture"
+      ],
+      "description": "Lightweight, practical and easy to use.",
+      "createdAt": "2021-01-14"
+    },
+    {
+      "id": 120,
+      "name": "Elite Camping Tent",
+      "brand": "Kinetic",
+      "category": "sports",
+      "priceCents": 21500,
+      "discountPercent": 30,
+      "rating": 3.8,
+      "reviewCount": 339,
+      "stock": 83,
+      "emoji": "⛺",
+      "tags": [
+        "camping",
+        "outdoor"
+      ],
+      "description": "Great value with a clean, simple design.",
+      "createdAt": "2021-07-25"
+    }
+  ]
+}

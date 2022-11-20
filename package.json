@@ -1,0 +1,13 @@
+{
+  "name": "product-catalog",
+  "version": "1.0.0",
+  "description": "A searchable product catalog with filters, sorting, pagination and shareable URLs.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "test:watch": "node --test --watch"
+  },
+  "author": "Vinco Dev",
+  "license": "MIT"
+}
