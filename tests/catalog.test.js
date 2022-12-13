@@ -1,6 +1,12 @@
 import { describe, test } from "node:test";
 import assert from "node:assert/strict";
-import { simplify, matchesSearch, getResults } from "../js/catalog.js";
+import {
+  simplify,
+  matchesSearch,
+  matchesCategories,
+  getResults,
+  countByCategory,
+} from "../js/catalog.js";
 
 // A small, hand-made catalog: easy to reason about in every test
 const product = (id, overrides = {}) => ({
@@ -83,19 +89,76 @@ describe("getResults", () => {
   const products = [headphones, perfume, mouse];
 
   test("returns everything with no search", () => {
-    assert.equal(getResults(products, { search: "" }).length, 3);
+    assert.equal(getResults(products, { search: "", categories: [] }).length, 3);
   });
 
   test("returns only the matches", () => {
     assert.deepEqual(
-      getResults(products, { search: "wireless" }).map((p) => p.id),
+      getResults(products, { search: "wireless", categories: [] }).map((p) => p.id),
       [1, 3]
     );
   });
 
   test("doesn't change the list it was given", () => {
     const copy = [...products];
-    getResults(products, { search: "wireless" });
+    getResults(products, { search: "wireless", categories: [] });
     assert.deepEqual(products, copy);
+  });
+});
+
+describe("matchesCategories", () => {
+  test("matches everything when no category is ticked", () => {
+    assert.equal(matchesCategories(perfume, []), true);
+  });
+
+  test("matches a ticked category", () => {
+    assert.equal(matchesCategories(perfume, ["beauty"]), true);
+  });
+
+  test("matches any of several ticked categories", () => {
+    assert.equal(matchesCategories(perfume, ["electronics", "beauty"]), true);
+  });
+
+  test("doesn't match other categories", () => {
+    assert.equal(matchesCategories(perfume, ["electronics"]), false);
+  });
+});
+
+describe("getResults with search and categories", () => {
+  const products = [headphones, perfume, mouse];
+
+  test("needs a product to pass both", () => {
+    // "wireless" matches headphones and mouse; only they're electronics
+    const results = getResults(products, { search: "wireless", categories: ["beauty"] });
+    assert.deepEqual(results, []);
+  });
+
+  test("combines them", () => {
+    const results = getResults(products, { search: "pro", categories: ["electronics"] });
+    assert.deepEqual(results.map((p) => p.id), [1]);
+  });
+});
+
+describe("countByCategory", () => {
+  const products = [headphones, perfume, mouse];
+
+  test("counts the products in each category", () => {
+    assert.deepEqual(countByCategory(products, { search: "", categories: [] }), {
+      electronics: 2,
+      beauty: 1,
+    });
+  });
+
+  test("follows the search", () => {
+    assert.deepEqual(countByCategory(products, { search: "mouse", categories: [] }), {
+      electronics: 1,
+    });
+  });
+
+  test("ignores the ticked categories, so the others still show their counts", () => {
+    assert.deepEqual(countByCategory(products, { search: "", categories: ["beauty"] }), {
+      electronics: 2,
+      beauty: 1,
+    });
   });
 });

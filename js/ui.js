@@ -83,6 +83,51 @@ export function renderCount(count) {
   elements.resultsCount.textContent = `${formatCount(count)} product${count === 1 ? "" : "s"}`;
 }
 
+// ===== Category checkboxes =====
+// Built once, when the data arrives:
+// <label class="option"><input type="checkbox" value="shoes"> Shoes <span>(15)</span></label>
+export function renderCategoryOptions(categories) {
+  elements.categoryList.replaceChildren(
+    ...categories.map(({ slug, name }) => {
+      const label = document.createElement("label");
+      label.className = "option";
+
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.name = "category";
+      checkbox.value = slug;
+
+      const text = document.createElement("span");
+      text.textContent = name;
+
+      const count = document.createElement("span");
+      count.className = "option__count";
+
+      label.append(checkbox, text, count);
+      return label;
+    })
+  );
+}
+
+// After every change: tick the chosen ones and update the counts. The
+// checkboxes are updated, never rebuilt. Rebuilding would throw away the
+// one you just clicked, and with it your keyboard focus.
+export function updateCategoryOptions(counts, selected) {
+  for (const checkbox of elements.categoryList.querySelectorAll("input")) {
+    const count = counts[checkbox.value] ?? 0;
+    checkbox.checked = selected.includes(checkbox.value);
+    const label = checkbox.closest(".option");
+    label.querySelector(".option__count").textContent = count;
+    // Greyed out (but still clickable) when it would show nothing
+    label.classList.toggle("option--empty", count === 0 && !checkbox.checked);
+  }
+}
+
+// The values of the ticked checkboxes, in page order: ["clothing", "shoes"]
+export function readCategoryOptions() {
+  return [...elements.categoryList.querySelectorAll("input:checked")].map((box) => box.value);
+}
+
 // ===== Status: loading, error, nothing found =====
 // action: { label, onClick } for a button such as "Try again", or null
 let statusActionHandler = null;

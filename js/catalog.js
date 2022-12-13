@@ -32,7 +32,30 @@ export function matchesSearch(product, query, categoryNames = {}) {
   return words.every((word) => text.includes(word));
 }
 
-// The products to show for a query. More rules join this in later steps.
+// Ticked categories: show products in ANY of them ("Shoes or Clothing").
+// None ticked means every category.
+export function matchesCategories(product, categories) {
+  return categories.length === 0 || categories.includes(product.category);
+}
+
+// The products to show for a query. A product has to pass EVERY rule.
+// More rules join this in the next steps.
 export function getResults(products, query, categoryNames = {}) {
-  return products.filter((product) => matchesSearch(product, query.search, categoryNames));
+  return products.filter(
+    (product) =>
+      matchesSearch(product, query.search, categoryNames) &&
+      matchesCategories(product, query.categories)
+  );
+}
+
+// How many products each category WOULD show, given everything else you've
+// chosen. That's why the category filter itself is left out: ticking
+// "Shoes" shouldn't make "Clothing" show 0.
+//   -> { electronics: 3, clothing: 0, ... }
+export function countByCategory(products, query, categoryNames = {}) {
+  const counts = {};
+  for (const product of getResults(products, { ...query, categories: [] }, categoryNames)) {
+    counts[product.category] = (counts[product.category] ?? 0) + 1;
+  }
+  return counts;
 }
