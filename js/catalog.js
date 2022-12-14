@@ -2,8 +2,9 @@
 // Pure functions only (products and a query in, products out), tested in
 // tests/catalog.test.js.
 //
-// A query looks like this (Step 8 adds sorting, Step 9 the page):
+// A query looks like this (Step 9 adds the page number):
 // {
+//   sort: "price-asc",            one of SORT_OPTIONS
 //   search: "wireless",
 //   categories: ["electronics"],  empty = all categories
 //   minPrice: 20, maxPrice: 100,  whole dollars, or null for no limit
@@ -95,6 +96,35 @@ export function countByCategory(products, query, categoryNames = {}) {
     counts[product.category] = (counts[product.category] ?? 0) + 1;
   }
   return counts;
+}
+
+// ===== Sorting =====
+// Compare functions for sort(): negative puts `a` first, positive puts `b`
+// first. Every one ends with a tie-breaker on id, so products with the same
+// price (or rating...) always come out in the same order. Without it, two
+// $19.99 items could swap places between page loads, and a product could
+// appear on both page 1 and page 2.
+const byId = (a, b) => a.id - b.id;
+
+const SORTS = {
+  featured: byId, // the shop's own order
+  "price-asc": (a, b) => finalPriceCents(a) - finalPriceCents(b) || byId(a, b),
+  "price-desc": (a, b) => finalPriceCents(b) - finalPriceCents(a) || byId(a, b),
+  // Highest rated first; with equal ratings, the one more people reviewed
+  rating: (a, b) => b.rating - a.rating || b.reviewCount - a.reviewCount || byId(a, b),
+  // "2022-07-30" > "2022-01-05": dates written year-month-day sort as text
+  newest: (a, b) => b.createdAt.localeCompare(a.createdAt) || byId(a, b),
+  popular: (a, b) => b.reviewCount - a.reviewCount || byId(a, b),
+};
+
+export const SORT_OPTIONS = Object.keys(SORTS);
+export const DEFAULT_SORT = "featured";
+
+// A NEW sorted array. sort() changes the array it's called on, so we sort
+// a copy and never touch the list we were given.
+export function sortProducts(products, sort) {
+  const compare = SORTS[sort] ?? SORTS[DEFAULT_SORT];
+  return [...products].sort(compare);
 }
 
 // ===== Cleaning what was typed =====

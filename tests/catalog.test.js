@@ -11,6 +11,7 @@ import {
   countByCategory,
   parsePrice,
   orderPriceRange,
+  sortProducts,
 } from "../js/catalog.js";
 
 // A query with nothing chosen; tests change only what they need
@@ -291,5 +292,53 @@ describe("orderPriceRange", () => {
 
   test("leaves a range with one side empty alone", () => {
     assert.deepEqual(orderPriceRange(100, null), { minPrice: 100, maxPrice: null });
+  });
+});
+
+describe("sortProducts", () => {
+  const a = product(1, { priceCents: 3000, rating: 4.2, reviewCount: 50, createdAt: "2022-03-01" });
+  const b = product(2, { priceCents: 1000, rating: 4.8, reviewCount: 900, createdAt: "2021-11-20" });
+  // $40 with 50% off = $20: between a and b when sorting by price
+  const c = product(3, { priceCents: 4000, discountPercent: 50, rating: 4.8, reviewCount: 10, createdAt: "2022-07-15" });
+  const products = [c, a, b];
+  const ids = (list) => list.map((p) => p.id);
+
+  test("featured keeps the shop's own order (by id)", () => {
+    assert.deepEqual(ids(sortProducts(products, "featured")), [1, 2, 3]);
+  });
+
+  test("price low to high uses the price after discounts", () => {
+    assert.deepEqual(ids(sortProducts(products, "price-asc")), [2, 3, 1]);
+  });
+
+  test("price high to low", () => {
+    assert.deepEqual(ids(sortProducts(products, "price-desc")), [1, 3, 2]);
+  });
+
+  test("rating: highest first, then the most reviewed", () => {
+    // b and c are both 4.8; b has more reviews
+    assert.deepEqual(ids(sortProducts(products, "rating")), [2, 3, 1]);
+  });
+
+  test("newest first", () => {
+    assert.deepEqual(ids(sortProducts(products, "newest")), [3, 1, 2]);
+  });
+
+  test("most reviewed first", () => {
+    assert.deepEqual(ids(sortProducts(products, "popular")), [2, 1, 3]);
+  });
+
+  test("breaks ties by id, so the order never changes", () => {
+    const same = [product(9, { priceCents: 500 }), product(4, { priceCents: 500 }), product(7, { priceCents: 500 })];
+    assert.deepEqual(ids(sortProducts(same, "price-asc")), [4, 7, 9]);
+  });
+
+  test("falls back to featured for a sort it doesn't know", () => {
+    assert.deepEqual(ids(sortProducts(products, "cheapest-ever")), [1, 2, 3]);
+  });
+
+  test("doesn't change the list it was given", () => {
+    sortProducts(products, "price-asc");
+    assert.deepEqual(ids(products), [3, 1, 2]);
   });
 });

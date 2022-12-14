@@ -1,7 +1,14 @@
 // Entry point: the only script loaded by index.html.
 // It connects the data (api.js), the rules (catalog.js) and the page (ui.js).
 import { loadCatalog } from "./api.js";
-import { getResults, countByCategory, parsePrice, orderPriceRange } from "./catalog.js";
+import {
+  getResults,
+  countByCategory,
+  parsePrice,
+  orderPriceRange,
+  sortProducts,
+  DEFAULT_SORT,
+} from "./catalog.js";
 import { debounce } from "./utils.js";
 import {
   elements,
@@ -31,6 +38,7 @@ const EMPTY_QUERY = {
   minRating: 0,
   inStock: false,
   onSale: false,
+  sort: DEFAULT_SORT,
 };
 
 // Filled once the data arrives
@@ -39,7 +47,7 @@ let catalog = { categories: [], products: [] };
 let categoryNames = {};
 
 // What the shopper has asked for. Every change goes: update the query,
-// then render(). Sorting and the page number join it soon.
+// then render(). The page number joins it soon.
 let query = EMPTY_QUERY;
 
 // ===== Drawing =====
@@ -53,7 +61,8 @@ function resultsTitle() {
 // Work out the results from scratch and draw them. Nothing about the
 // results is stored: it's always calculated from `catalog` and `query`.
 function render() {
-  const results = getResults(catalog.products, query, categoryNames);
+  // Filter first, then sort: sorting 20 matches is less work than 120
+  const results = sortProducts(getResults(catalog.products, query, categoryNames), query.sort);
 
   elements.resultsTitle.textContent = resultsTitle();
   renderCount(results.length);
@@ -130,9 +139,16 @@ function handlePriceDone() {
   writeFilters(query);
 }
 
-// Back to a fresh start: no search, no filters
+// ===== Sorting =====
+function handleSortChange() {
+  query = { ...query, sort: elements.sortSelect.value };
+  render();
+}
+
+// Back to a fresh start: no search, no filters. The sort order stays:
+// it's how you like to look at things, not something you filtered by.
 function clearAll() {
-  query = EMPTY_QUERY;
+  query = { ...EMPTY_QUERY, sort: query.sort };
   elements.searchInput.value = "";
   writeFilters(query);
   render();
@@ -156,6 +172,8 @@ async function start() {
 
   categoryNames = Object.fromEntries(catalog.categories.map((c) => [c.slug, c.name]));
   renderCategoryOptions(catalog.categories);
+  // Browsers can keep a <select>'s old value after a refresh: match the query
+  elements.sortSelect.value = query.sort;
   render();
 }
 
@@ -165,6 +183,7 @@ elements.filtersForm.addEventListener("input", handleFiltersInput);
 elements.priceMin.addEventListener("change", handlePriceDone);
 elements.priceMax.addEventListener("change", handlePriceDone);
 elements.clearFilters.addEventListener("click", clearAll);
+elements.sortSelect.addEventListener("change", handleSortChange);
 // The filters are a form only for its built-in controls; never submit it.
 // (Enter in a price box tries to submit: treat it as "done".)
 elements.filtersForm.addEventListener("submit", (event) => {
