@@ -79,8 +79,51 @@ export function renderProducts(products, categoryNames) {
   elements.grid.hidden = products.length === 0;
 }
 
-export function renderCount(count) {
-  elements.resultsCount.textContent = `${formatCount(count)} product${count === 1 ? "" : "s"}`;
+// "120 products", or "Showing 13–24 of 120 products" when there are pages
+export function renderCount({ total, from, to, totalPages }) {
+  const products = `${formatCount(total)} product${total === 1 ? "" : "s"}`;
+  elements.resultsCount.textContent =
+    totalPages > 1 ? `Showing ${from}–${to} of ${products}` : products;
+}
+
+// ===== Pagination =====
+function createPageButton(label, page, { current = false, disabled = false, ariaLabel } = {}) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "page-btn";
+  button.textContent = label;
+  button.dataset.page = page;
+  button.disabled = disabled;
+  if (ariaLabel) button.setAttribute("aria-label", ariaLabel);
+  // aria-current="page" tells screen readers "you are here"
+  if (current) button.setAttribute("aria-current", "page");
+  return button;
+}
+
+// ‹ 1 … 4 5 6 … 10 ›  (pages: the list from pageNumbers())
+export function renderPagination(current, totalPages, pages) {
+  elements.pagination.hidden = totalPages <= 1;
+  if (totalPages <= 1) {
+    elements.pagination.replaceChildren();
+    return;
+  }
+
+  const buttons = pages.map((page) => {
+    if (page === "…") {
+      const gap = document.createElement("span");
+      gap.className = "page-gap";
+      gap.textContent = "…";
+      gap.setAttribute("aria-hidden", "true");
+      return gap;
+    }
+    return createPageButton(page, page, { current: page === current, ariaLabel: `Page ${page}` });
+  });
+
+  elements.pagination.replaceChildren(
+    createPageButton("‹", current - 1, { disabled: current === 1, ariaLabel: "Previous page" }),
+    ...buttons,
+    createPageButton("›", current + 1, { disabled: current === totalPages, ariaLabel: "Next page" })
+  );
 }
 
 // ===== Category checkboxes =====

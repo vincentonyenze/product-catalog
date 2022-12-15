@@ -8,6 +8,8 @@ import {
   orderPriceRange,
   sortProducts,
   DEFAULT_SORT,
+  paginate,
+  pageNumbers,
 } from "./catalog.js";
 import { debounce } from "./utils.js";
 import {
@@ -20,6 +22,7 @@ import {
   updateCategoryOptions,
   readFilters,
   writeFilters,
+  renderPagination,
 } from "./ui.js";
 
 // Searching 120 products is instant, but waiting for a short pause means
@@ -39,6 +42,7 @@ const EMPTY_QUERY = {
   inStock: false,
   onSale: false,
   sort: DEFAULT_SORT,
+  page: 1,
 };
 
 // Filled once the data arrives
@@ -47,7 +51,8 @@ let catalog = { categories: [], products: [] };
 let categoryNames = {};
 
 // What the shopper has asked for. Every change goes: update the query,
-// then render(). The page number joins it soon.
+// then render(). Any change other than the page itself goes back to
+// page 1: page 4 of the old results means nothing for the new ones.
 let query = EMPTY_QUERY;
 
 // ===== Drawing =====
@@ -61,12 +66,17 @@ function resultsTitle() {
 // Work out the results from scratch and draw them. Nothing about the
 // results is stored: it's always calculated from `catalog` and `query`.
 function render() {
-  // Filter first, then sort: sorting 20 matches is less work than 120
+  // Filter first, then sort: sorting 20 matches is less work than 120.
+  // Then cut out just the page being looked at.
   const results = sortProducts(getResults(catalog.products, query, categoryNames), query.sort);
+  const page = paginate(results, query.page);
+  // A page that doesn't exist (too big, or 0) was moved to a real one
+  query = { ...query, page: page.page };
 
   elements.resultsTitle.textContent = resultsTitle();
-  renderCount(results.length);
-  renderProducts(results, categoryNames);
+  renderCount(page);
+  renderProducts(page.items, categoryNames);
+  renderPagination(page.page, page.totalPages, pageNumbers(page.page, page.totalPages));
   updateCategoryOptions(countByCategory(catalog.products, query, categoryNames), query.categories);
 
   if (results.length === 0) {
@@ -87,7 +97,7 @@ function render() {
 function search() {
   const search = elements.searchInput.value.trim();
   if (search === query.search) return;
-  query = { ...query, search };
+  query = { ...query, search, page: 1 };
   render();
 }
 
@@ -117,9 +127,10 @@ function applyFilters() {
     inStock: filters.inStock,
     onSale: filters.onSale,
   };
-  // Nothing actually changed (e.g. "50" -> "50."): don't redraw
+  // Nothing actually changed (e.g. "50" -> "50."): don't redraw, and
+  // don't lose your page
   if (JSON.stringify(next) === JSON.stringify(query)) return;
-  query = next;
+  query = { ...next, page: 1 };
   render();
 }
 
@@ -141,8 +152,24 @@ function handlePriceDone() {
 
 // ===== Sorting =====
 function handleSortChange() {
-  query = { ...query, sort: elements.sortSelect.value };
+  query = { ...query, sort: elements.sortSelect.value, page: 1 };
   render();
+}
+
+// ===== Pages =====
+// One listener for every page button (they're rebuilt on each render)
+function handlePaginationClick(event) {
+  const button = event.target.closest(".page-btn");
+  if (!button || button.disabled) return;
+
+  query = { ...query, page: Number(button.dataset.page) };
+  render();
+
+  // Back to the top of the results. Focusing the heading also moves
+  // screen readers and keyboard users there, instead of leaving them at
+  // the bottom of a page they can no longer see.
+  elements.resultsTitle.focus({ preventScroll: true });
+  elements.resultsTitle.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 // Back to a fresh start: no search, no filters. The sort order stays:
@@ -184,6 +211,7 @@ elements.priceMin.addEventListener("change", handlePriceDone);
 elements.priceMax.addEventListener("change", handlePriceDone);
 elements.clearFilters.addEventListener("click", clearAll);
 elements.sortSelect.addEventListener("change", handleSortChange);
+elements.pagination.addEventListener("click", handlePaginationClick);
 // The filters are a form only for its built-in controls; never submit it.
 // (Enter in a price box tries to submit: treat it as "done".)
 elements.filtersForm.addEventListener("submit", (event) => {

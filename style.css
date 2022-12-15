@@ -387,6 +387,9 @@ body {
 .toolbar__title {
   font-size: 1.5rem;
   line-height: 1.2;
+  /* When scrolled to (page buttons, skip link), stop below the sticky
+     64px header instead of hiding behind it */
+  scroll-margin-top: calc(64px + 1.5rem);
 }
 
 .toolbar__title:focus {
