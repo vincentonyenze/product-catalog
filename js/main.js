@@ -12,6 +12,7 @@ import {
   pageNumbers,
 } from "./catalog.js";
 import { debounce } from "./utils.js";
+import { queryToSearchParams, searchParamsToQuery } from "./url.js";
 import {
   elements,
   renderProducts,
@@ -77,6 +78,7 @@ function render() {
   renderCount(page);
   renderProducts(page.items, categoryNames);
   renderPagination(page.page, page.totalPages, pageNumbers(page.page, page.totalPages));
+  updateUrl();
   updateCategoryOptions(countByCategory(catalog.products, query, categoryNames), query.categories);
 
   if (results.length === 0) {
@@ -91,6 +93,27 @@ function render() {
   } else {
     hideStatus();
   }
+}
+
+// ===== The URL =====
+// Keep the address bar in step with what's on screen, so a refresh or a
+// copied link shows exactly the same thing.
+// replaceState changes the URL WITHOUT loading a new page or adding a
+// Back-button step (Step 11 decides which changes deserve one).
+function updateUrl() {
+  const params = queryToSearchParams(query);
+  const url = params ? `?${params}` : location.pathname;
+  history.replaceState(null, "", url);
+  // The tab's title too, so bookmarks and history have a useful name
+  document.title = `${resultsTitle()} – Shop`;
+}
+
+// Make every control show the query (when the page opens from a link)
+function showQueryInControls() {
+  elements.searchInput.value = query.search;
+  elements.sortSelect.value = query.sort;
+  writeFilters(query);
+  // The category ticks are set by render()
 }
 
 // ===== Search =====
@@ -199,8 +222,11 @@ async function start() {
 
   categoryNames = Object.fromEntries(catalog.categories.map((c) => [c.slug, c.name]));
   renderCategoryOptions(catalog.categories);
-  // Browsers can keep a <select>'s old value after a refresh: match the query
-  elements.sortSelect.value = query.sort;
+
+  // Start from whatever the URL asks for. The categories have to be loaded
+  // first, to know which category names in the URL are real.
+  query = searchParamsToQuery(location.search, catalog.categories.map((c) => c.slug));
+  showQueryInControls();
   render();
 }
 
