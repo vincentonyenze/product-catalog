@@ -52,7 +52,7 @@ let catalog = { categories: [], products: [] };
 let categoryNames = {};
 
 // What the shopper has asked for. Every change goes: update the query,
-// then render(). Any change other than the page itself goes back to
+// then commit() (which draws it). Any change other than the page itself goes back to
 // page 1: page 4 of the old results means nothing for the new ones.
 let query = EMPTY_QUERY;
 
@@ -66,7 +66,8 @@ function resultsTitle() {
 
 // Work out the results from scratch and draw them. Nothing about the
 // results is stored: it's always calculated from `catalog` and `query`.
-function render() {
+// history: "push" adds a Back-button step, "replace" just updates the URL
+function render({ history: historyMode = "replace" } = {}) {
   // Filter first, then sort: sorting 20 matches is less work than 120.
   // Then cut out just the page being looked at.
   const results = sortProducts(getResults(catalog.products, query, categoryNames), query.sort);
@@ -78,7 +79,7 @@ function render() {
   renderCount(page);
   renderProducts(page.items, categoryNames);
   renderPagination(page.page, page.totalPages, pageNumbers(page.page, page.totalPages));
-  updateUrl();
+  updateUrl(historyMode);
   updateCategoryOptions(countByCategory(catalog.products, query, categoryNames), query.categories);
 
   if (results.length === 0) {
@@ -95,20 +96,50 @@ function render() {
   }
 }
 
-// ===== The URL =====
+// ===== The URL and the Back button =====
 // Keep the address bar in step with what's on screen, so a refresh or a
-// copied link shows exactly the same thing.
-// replaceState changes the URL WITHOUT loading a new page or adding a
-// Back-button step (Step 11 decides which changes deserve one).
-function updateUrl() {
+// copied link shows exactly the same thing. Neither call loads a new page:
+// - pushState ADDS a step to the browser's history: Back returns to the
+//   URL before it. Used when the shopper changes something.
+// - replaceState swaps the CURRENT step's URL. Used for tidying up (e.g. a
+//   page number that didn't exist), so Back doesn't land on a dead end.
+function updateUrl(mode) {
   const params = queryToSearchParams(query);
-  const url = params ? `?${params}` : location.pathname;
-  history.replaceState(null, "", url);
-  // The tab's title too, so bookmarks and history have a useful name
+  const search = params ? `?${params}` : "";
+
+  if (mode === "push" && search !== location.search) {
+    history.pushState(null, "", search || location.pathname);
+  } else {
+    history.replaceState(null, "", search || location.pathname);
+  }
+  // The tab's title too, so history and bookmarks have useful names
   document.title = `${resultsTitle()} – Shop`;
 }
 
-// Make every control show the query (when the page opens from a link)
+// What the last Back-button step was for. Typing "wireless headphones"
+// with a few pauses would otherwise add a step for "wire", "wireless" and
+// "wireless head"; instead one search gets one step, kept up to date.
+let lastChange = null;
+
+// The shopper changed something: draw it, and decide about the Back button
+function commit(change) {
+  const sameSearchStillGoing = change === "search" && lastChange === "search";
+  lastChange = change;
+  render({ history: sameSearchStillGoing ? "replace" : "push" });
+}
+
+// Back or Forward was pressed. The URL has already changed; read the query
+// from it and redraw. (render() then only REPLACES, never pushes, or
+// Forward would stop working.)
+function handlePopState() {
+  query = searchParamsToQuery(location.search, catalog.categories.map((c) => c.slug));
+  lastChange = null;
+  showQueryInControls();
+  render();
+}
+
+// Make every control show the query (when the page opens from a link,
+// and after Back or Forward)
 function showQueryInControls() {
   elements.searchInput.value = query.search;
   elements.sortSelect.value = query.sort;
@@ -121,7 +152,7 @@ function search() {
   const search = elements.searchInput.value.trim();
   if (search === query.search) return;
   query = { ...query, search, page: 1 };
-  render();
+  commit("search");
 }
 
 const searchSoon = debounce(search, SEARCH_DELAY_MS);
@@ -154,7 +185,7 @@ function applyFilters() {
   // don't lose your page
   if (JSON.stringify(next) === JSON.stringify(query)) return;
   query = { ...next, page: 1 };
-  render();
+  commit("filters");
 }
 
 const applyFiltersSoon = debounce(applyFilters, PRICE_DELAY_MS);
@@ -176,7 +207,7 @@ function handlePriceDone() {
 // ===== Sorting =====
 function handleSortChange() {
   query = { ...query, sort: elements.sortSelect.value, page: 1 };
-  render();
+  commit("sort");
 }
 
 // ===== Pages =====
@@ -186,7 +217,7 @@ function handlePaginationClick(event) {
   if (!button || button.disabled) return;
 
   query = { ...query, page: Number(button.dataset.page) };
-  render();
+  commit("page");
 
   // Back to the top of the results. Focusing the heading also moves
   // screen readers and keyboard users there, instead of leaving them at
@@ -201,7 +232,7 @@ function clearAll() {
   query = { ...EMPTY_QUERY, sort: query.sort };
   elements.searchInput.value = "";
   writeFilters(query);
-  render();
+  commit("clear");
 }
 
 // ===== Start =====
@@ -231,6 +262,12 @@ async function start() {
 }
 
 elements.searchInput.addEventListener("input", searchSoon);
+// Leaving the search box ends that search: the next one gets its own step
+elements.searchInput.addEventListener("blur", () => {
+  searchSoon.flush();
+  if (lastChange === "search") lastChange = null;
+});
+window.addEventListener("popstate", handlePopState);
 elements.searchForm.addEventListener("submit", handleSearchSubmit);
 elements.filtersForm.addEventListener("input", handleFiltersInput);
 elements.priceMin.addEventListener("change", handlePriceDone);
