@@ -13,6 +13,7 @@ import {
 } from "./catalog.js";
 import { debounce } from "./utils.js";
 import { queryToSearchParams, searchParamsToQuery } from "./url.js";
+import { activeFilterChips } from "./chips.js";
 import {
   elements,
   renderProducts,
@@ -24,6 +25,8 @@ import {
   readFilters,
   writeFilters,
   renderPagination,
+  renderActiveFilters,
+  focusChipAt,
 } from "./ui.js";
 
 // Searching 120 products is instant, but waiting for a short pause means
@@ -79,6 +82,7 @@ function render({ history: historyMode = "replace" } = {}) {
   renderCount(page);
   renderProducts(page.items, categoryNames);
   renderPagination(page.page, page.totalPages, pageNumbers(page.page, page.totalPages));
+  renderActiveFilters(activeFilterChips(query, categoryNames));
   updateUrl(historyMode);
   updateCategoryOptions(countByCategory(catalog.products, query, categoryNames), query.categories);
 
@@ -226,6 +230,29 @@ function handlePaginationClick(event) {
   elements.resultsTitle.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+// ===== Active filter chips =====
+// One listener for every chip (they're rebuilt on each render)
+function handleChipClick(event) {
+  const button = event.target.closest(".chip");
+  if (!button) return;
+
+  if (button.dataset.chipId === "clear-all") {
+    clearAll();
+    elements.resultsTitle.focus();
+    return;
+  }
+
+  const chips = activeFilterChips(query, categoryNames);
+  const index = chips.findIndex((chip) => chip.id === button.dataset.chipId);
+  if (index === -1) return;
+
+  // Undo just this one filter, then make the form and search box match
+  query = { ...query, ...chips[index].remove, page: 1 };
+  showQueryInControls();
+  commit(chips[index].id === "search" ? "search-cleared" : "filters");
+  focusChipAt(index);
+}
+
 // Back to a fresh start: no search, no filters. The sort order stays:
 // it's how you like to look at things, not something you filtered by.
 function clearAll() {
@@ -275,6 +302,7 @@ elements.priceMax.addEventListener("change", handlePriceDone);
 elements.clearFilters.addEventListener("click", clearAll);
 elements.sortSelect.addEventListener("change", handleSortChange);
 elements.pagination.addEventListener("click", handlePaginationClick);
+elements.activeFilters.addEventListener("click", handleChipClick);
 // The filters are a form only for its built-in controls; never submit it.
 // (Enter in a price box tries to submit: treat it as "done".)
 elements.filtersForm.addEventListener("submit", (event) => {

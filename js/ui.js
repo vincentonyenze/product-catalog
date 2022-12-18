@@ -15,6 +15,7 @@ export const elements = {
   resultsCount: document.getElementById("results-count"),
   sortSelect: document.getElementById("sort-select"),
   activeFilters: document.getElementById("active-filters"),
+  filtersToggleCount: document.getElementById("filters-toggle-count"),
   status: document.getElementById("status"),
   statusIcon: document.getElementById("status-icon"),
   statusMessage: document.getElementById("status-message"),
@@ -84,6 +85,54 @@ export function renderCount({ total, from, to, totalPages }) {
   const products = `${formatCount(total)} product${total === 1 ? "" : "s"}`;
   elements.resultsCount.textContent =
     totalPages > 1 ? `Showing ${from}–${to} of ${products}` : products;
+}
+
+// ===== Active filter chips =====
+// chips: from activeFilterChips(). With two or more, a "Clear all" link
+// is added at the end. The ⚙️ Filters button (on phones) shows how many.
+export function renderActiveFilters(chips) {
+  const items = chips.map((chip) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "chip";
+    button.dataset.chipId = chip.id;
+    // Visible: "Shoes ✕". Heard: "Remove filter: Shoes"
+    button.setAttribute("aria-label", `Remove filter: ${chip.label}`);
+    button.textContent = chip.label;
+    const cross = document.createElement("span");
+    cross.setAttribute("aria-hidden", "true");
+    cross.textContent = "✕";
+    button.append(cross);
+
+    const item = document.createElement("li");
+    item.append(button);
+    return item;
+  });
+
+  if (chips.length >= 2) {
+    const clear = document.createElement("button");
+    clear.type = "button";
+    clear.className = "chip chip--clear";
+    clear.dataset.chipId = "clear-all";
+    clear.textContent = "Clear all";
+    const item = document.createElement("li");
+    item.append(clear);
+    items.push(item);
+  }
+
+  elements.activeFilters.replaceChildren(...items);
+  elements.activeFilters.hidden = chips.length === 0;
+
+  elements.filtersToggleCount.textContent = chips.length;
+  elements.filtersToggleCount.hidden = chips.length === 0;
+}
+
+// After a chip is removed, its button is gone. Put focus on the chip that
+// took its place (or the one before it), or the heading if none are left.
+export function focusChipAt(index) {
+  const chips = elements.activeFilters.querySelectorAll(".chip");
+  const chip = chips[Math.min(index, chips.length - 1)];
+  (chip ?? elements.resultsTitle).focus();
 }
 
 // ===== Pagination =====
