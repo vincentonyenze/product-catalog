@@ -673,6 +673,22 @@ body {
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
   }
 
+  /* The page behind the open drawer shouldn't scroll */
+  body.no-scroll {
+    overflow: hidden;
+  }
+
+  /* "Show 24 results" sits at the bottom of the drawer, always in reach
+     of your thumb, however long the list of filters is */
+  .filters__actions {
+    position: sticky;
+    bottom: -1.25rem; /* line up with the drawer's bottom padding */
+    margin-inline: -1.25rem;
+    padding: 1rem 1.25rem 1.25rem;
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+  }
+
   .site-header__inner {
     gap: 1rem;
   }

@@ -27,6 +27,8 @@ import {
   renderPagination,
   renderActiveFilters,
   focusChipAt,
+  setFiltersOpen,
+  renderShowResults,
 } from "./ui.js";
 
 // Searching 120 products is instant, but waiting for a short pause means
@@ -34,6 +36,9 @@ import {
 const SEARCH_DELAY_MS = 250;
 // Wait a little longer for prices: "1", "12", "120" are all on the way to 120
 const PRICE_DELAY_MS = 500;
+
+// The same width as the CSS breakpoint where filters become a drawer
+const drawerScreen = window.matchMedia("(max-width: 900px)");
 
 // What a fresh visit shows: nothing searched, nothing filtered
 // (catalog.js explains each field)
@@ -83,6 +88,7 @@ function render({ history: historyMode = "replace" } = {}) {
   renderProducts(page.items, categoryNames);
   renderPagination(page.page, page.totalPages, pageNumbers(page.page, page.totalPages));
   renderActiveFilters(activeFilterChips(query, categoryNames));
+  renderShowResults(results.length);
   updateUrl(historyMode);
   updateCategoryOptions(countByCategory(catalog.products, query, categoryNames), query.categories);
 
@@ -253,6 +259,44 @@ function handleChipClick(event) {
   focusChipAt(index);
 }
 
+// ===== Filter drawer (small screens) =====
+let isDrawerOpen = false;
+
+function openFilters() {
+  isDrawerOpen = true;
+  setFiltersOpen(true);
+  // Into the drawer, so keyboard and screen reader users start there
+  elements.filtersClose.focus();
+}
+
+// returnFocus: false when the drawer closes itself because the screen got
+// wider (there's no button to go back to then)
+function closeFilters({ returnFocus = true } = {}) {
+  if (!isDrawerOpen) return;
+  isDrawerOpen = false;
+  applyFiltersSoon.flush(); // a price still being typed counts
+  setFiltersOpen(false);
+  if (returnFocus) elements.filtersToggle.focus();
+}
+
+// Esc closes it, like any dialog
+function handleDrawerKeydown(event) {
+  if (event.key === "Escape" && isDrawerOpen) closeFilters();
+}
+
+// A tap on the darkened page outside the drawer closes it
+function handleOutsideClick(event) {
+  if (!isDrawerOpen) return;
+  if (elements.filters.contains(event.target) || elements.filtersToggle.contains(event.target)) return;
+  closeFilters();
+}
+
+// Rotating a tablet or widening the window: the drawer becomes the
+// normal sidebar again, so it mustn't stay "open"
+function handleScreenChange() {
+  if (!drawerScreen.matches) closeFilters({ returnFocus: false });
+}
+
 // Back to a fresh start: no search, no filters. The sort order stays:
 // it's how you like to look at things, not something you filtered by.
 function clearAll() {
@@ -303,6 +347,12 @@ elements.clearFilters.addEventListener("click", clearAll);
 elements.sortSelect.addEventListener("change", handleSortChange);
 elements.pagination.addEventListener("click", handlePaginationClick);
 elements.activeFilters.addEventListener("click", handleChipClick);
+elements.filtersToggle.addEventListener("click", openFilters);
+elements.filtersClose.addEventListener("click", () => closeFilters());
+elements.filtersDone.addEventListener("click", () => closeFilters());
+document.addEventListener("keydown", handleDrawerKeydown);
+document.addEventListener("click", handleOutsideClick);
+drawerScreen.addEventListener("change", handleScreenChange);
 // The filters are a form only for its built-in controls; never submit it.
 // (Enter in a price box tries to submit: treat it as "done".)
 elements.filtersForm.addEventListener("submit", (event) => {

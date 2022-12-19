@@ -16,6 +16,11 @@ export const elements = {
   sortSelect: document.getElementById("sort-select"),
   activeFilters: document.getElementById("active-filters"),
   filtersToggleCount: document.getElementById("filters-toggle-count"),
+  filtersToggle: document.getElementById("filters-toggle"),
+  filtersClose: document.getElementById("filters-close"),
+  filtersDone: document.getElementById("filters-done"),
+  siteHeader: document.querySelector(".site-header"),
+  results: document.querySelector(".results"),
   status: document.getElementById("status"),
   statusIcon: document.getElementById("status-icon"),
   statusMessage: document.getElementById("status-message"),
@@ -133,6 +138,34 @@ export function focusChipAt(index) {
   const chips = elements.activeFilters.querySelectorAll(".chip");
   const chip = chips[Math.min(index, chips.length - 1)];
   (chip ?? elements.resultsTitle).focus();
+}
+
+// ===== Filter drawer (phones and small tablets) =====
+// While open it behaves like a dialog: the rest of the page is made
+// `inert` (can't be clicked, tabbed to or read by screen readers), so
+// keyboard users can't wander off behind it.
+export function setFiltersOpen(isOpen) {
+  elements.filters.classList.toggle("filters--open", isOpen);
+  elements.filtersToggle.setAttribute("aria-expanded", String(isOpen));
+  elements.siteHeader.inert = isOpen;
+  elements.results.inert = isOpen;
+  document.body.classList.toggle("no-scroll", isOpen);
+
+  // Only a dialog while it's open on a small screen
+  if (isOpen) {
+    elements.filters.setAttribute("role", "dialog");
+    elements.filters.setAttribute("aria-modal", "true");
+  } else {
+    elements.filters.removeAttribute("role");
+    elements.filters.removeAttribute("aria-modal");
+  }
+}
+
+// "Show 24 results" on the drawer's button, so you know what you'll get
+// before you close it
+export function renderShowResults(total) {
+  elements.filtersDone.textContent =
+    total === 0 ? "No results" : `Show ${formatCount(total)} result${total === 1 ? "" : "s"}`;
 }
 
 // ===== Pagination =====
